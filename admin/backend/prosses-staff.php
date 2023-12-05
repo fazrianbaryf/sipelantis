@@ -21,12 +21,12 @@ if(isset($_POST['add-users'])){
         echo "email sudah digunakan";
         die;
     }
+    $PASSWORD = password_hash($PASSWORD,PASSWORD_DEFAULT);
     
     $QueryAddUser = "INSERT INTO tbl_m_user(name_m_user, email_m_user, password_m_user, role_m_user, created_by_m_user) VALUES ('".$NAME."','".$EMAIL."','".$PASSWORD."','".$ROLE."',1)";
 
     $ResultQueryAddUser = mysqli_query($mysqli, $QueryAddUser);
 
-    // Tambahkan logika lainnya jika diperlukan, seperti menampilkan pesan sukses atau redirect ke halaman tertentu
     if ($ResultQueryAddUser) {
         echo "Tambah user berhasil.";
     } else {
@@ -35,7 +35,8 @@ if(isset($_POST['add-users'])){
 
 }
 
-if(isset($_POST['edit-users'])) {
+// Edit Users
+if (isset($_POST['edit-users'])) {
     global $mysqli;
 
     $ID = mysqli_real_escape_string($mysqli, $_POST['id_m_user']);
@@ -45,32 +46,56 @@ if(isset($_POST['edit-users'])) {
     $CONFIRM_PW = mysqli_real_escape_string($mysqli, $_POST['tConfirmPassword']);
     $ROLE = mysqli_real_escape_string($mysqli, $_POST['trole']);
 
-    if($CONFIRM_PW != $PASSWORD) {
-        echo "password tidak sesuai dengan konfirmasi password";
+    // Dapatkan alamat email saat ini dari database untuk pengguna yang diedit
+    $currentEmailQuery = mysqli_query($mysqli, "SELECT email_m_user FROM tbl_m_user WHERE id_m_user = '$ID'");
+    $currentEmailRow = mysqli_fetch_assoc($currentEmailQuery);
+    $currentEmail = $currentEmailRow['email_m_user'];
+
+    if ($CONFIRM_PW != $PASSWORD) {
+        echo "Password tidak sesuai dengan konfirmasi password";
         die;
     }
 
-    $usedEmail = mysqli_query($mysqli,"SELECT email_m_user FROM tbl_m_user WHERE email_m_user = '$EMAIL'");
-    if(mysqli_num_rows($usedEmail) > 0) {
-        echo "email sudah digunakan";
-        die;
+    // Periksa apakah pengguna mengubah alamat email dan alamat email baru sudah digunakan
+    if ($EMAIL != $currentEmail) {
+        $usedEmailQuery = mysqli_query($mysqli, "SELECT email_m_user FROM tbl_m_user WHERE email_m_user = '$EMAIL'");
+        if (mysqli_num_rows($usedEmailQuery) > 0) {
+            echo "Alamat email sudah digunakan oleh pengguna lain.";
+            die;
+        }
     }
 
-    $queryUpdateUser = "UPDATE tbl_m_user SET 
-                        name_m_user='$NAME', 
-                        email_m_user='$EMAIL', 
-                        password_m_user='$PASSWORD', 
-                        role_m_user='$ROLE' 
-                        WHERE id_m_user='$ID'";
+    $PASSWORD = password_hash($PASSWORD,PASSWORD_DEFAULT);
+
+    // Tambahkan logika untuk memeriksa apakah password baru diisi atau tidak
+    if (!empty($PASSWORD)) {
+        $queryUpdateUser = "UPDATE tbl_m_user SET 
+                            name_m_user='$NAME', 
+                            email_m_user='$EMAIL', 
+                            password_m_user='$PASSWORD', 
+                            role_m_user='$ROLE',
+                            updated_date_m_user=NOW()
+                            WHERE id_m_user='$ID'";
+    } else {
+        // Jika password tidak diisi, biarkan password tetap menggunakan yang lama
+        $queryUpdateUser = "UPDATE tbl_m_user SET 
+                            name_m_user='$NAME', 
+                            email_m_user='$EMAIL', 
+                            role_m_user='$ROLE',
+                            updated_date_m_user=NOW()
+                            WHERE id_m_user='$ID'";
+    }
 
     $resultUpdateUser = mysqli_query($mysqli, $queryUpdateUser);
 
     if ($resultUpdateUser) {
-        echo "Edit user berhasil.";
+        echo "Edit pengguna berhasil.";
     } else {
-        echo "Gagal mengedit user: " . mysqli_error($mysqli);
+        echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
     }
 }
+
+
 
 //delete users
 if(isset($_GET['id_m_user'])){

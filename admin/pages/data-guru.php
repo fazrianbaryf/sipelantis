@@ -40,34 +40,37 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="row g-3" action="" method="post">
+                                            <form class="row g-3" action="../backend/prosses-data-guru.php"
+                                                method="post">
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">NIP</label>
-                                                    <input type="text" class="form-control" id="inputNanme4">
+                                                    <label for="NIP" class="form-label">NIP</label>
+                                                    <input type="text" class="form-control" id="NIP" name="NIP">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputEmail4" class="form-label">Nama</label>
-                                                    <input type="text" class="form-control" id="inputEmail4">
+                                                    <label for="nama" class="form-label">Nama</label>
+                                                    <input type="text" class="form-control" id="nama" name="namaGuru">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputnumber" class="form-label">No Telepon</label>
-                                                    <input type="text" class="form-control" id="inputnumber">
+                                                    <label for="no_telp" class="form-label">No Telepon</label>
+                                                    <input type="text" class="form-control" id="no_telp" name="no_telp">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputnumber" class="form-label">Pengampu Mapel</label>
-                                                    <input type="text" class="form-control" id="inputnumber">
+                                                    <label for="pengampuMapel" class="form-label">Pengampu
+                                                        Mapel</label>
+                                                    <input type="text" class="form-control" id="pengampuMapel"
+                                                        name="pengampuMapel">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="validationCustom04" class="form-label">Jenis
+                                                    <label for="jk" class="form-label">Jenis
                                                         Kelamin</label>
-                                                    <select class="form-select" id="validationCustom04" required>
+                                                    <select class="form-select" id="jk" required name="jk">
                                                         <option selected disabled value="">Choose...</option>
                                                         <option>Laki-Laki</option>
                                                         <option>Perempuan</option>
                                                     </select>
                                                 </div>
 
-                                                <button type="button" class="btn btn-primary">
+                                                <button type="input" class="btn btn-primary" name="add-guru">
                                                     <i class="bi bi-person-add"></i>
                                                     Tambah Guru
                                                 </button>
