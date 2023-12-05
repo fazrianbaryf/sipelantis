@@ -57,7 +57,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 <div class="col-12">
                                                     <label for="password" class="form-label">Confirm Password</label>
                                                     <input type="text" class="form-control" id="password"
-                                                        name="password">
+                                                        name="confirm_pw">
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="role" class="form-label">Role</label>

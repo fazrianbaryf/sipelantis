@@ -8,8 +8,20 @@ if(isset($_POST['add-users'])){
     $NAME = mysqli_real_escape_string($mysqli, $_POST['name']);
     $EMAIL = mysqli_real_escape_string($mysqli, $_POST['email']);
     $PASSWORD = mysqli_real_escape_string($mysqli, $_POST['password']);
+    $CONFIRM_PW = mysqli_real_escape_string($mysqli, $_POST['confirm_pw']);
     $ROLE = mysqli_real_escape_string($mysqli, $_POST['role']);
 
+    if($CONFIRM_PW != $PASSWORD) {
+        echo "password tidak sesuai dengan konfirmasi password";
+        die;
+    }
+
+    $usedEmail = mysqli_query($mysqli,"SELECT email_m_user FROM tbl_m_user WHERE email_m_user = '$EMAIL'");
+    if(mysqli_num_rows($usedEmail) > 0) {
+        echo "email sudah digunakan";
+        die;
+    }
+    
     $QueryAddUser = "INSERT INTO tbl_m_user(name_m_user, email_m_user, password_m_user, role_m_user, created_by_m_user) VALUES ('".$NAME."','".$EMAIL."','".$PASSWORD."','".$ROLE."',1)";
 
     $ResultQueryAddUser = mysqli_query($mysqli, $QueryAddUser);
@@ -33,7 +45,17 @@ if(isset($_POST['edit-users'])) {
     $CONFIRM_PW = mysqli_real_escape_string($mysqli, $_POST['tConfirmPassword']);
     $ROLE = mysqli_real_escape_string($mysqli, $_POST['trole']);
 
-    // Update Query
+    if($CONFIRM_PW != $PASSWORD) {
+        echo "password tidak sesuai dengan konfirmasi password";
+        die;
+    }
+
+    $usedEmail = mysqli_query($mysqli,"SELECT email_m_user FROM tbl_m_user WHERE email_m_user = '$EMAIL'");
+    if(mysqli_num_rows($usedEmail) > 0) {
+        echo "email sudah digunakan";
+        die;
+    }
+
     $queryUpdateUser = "UPDATE tbl_m_user SET 
                         name_m_user='$NAME', 
                         email_m_user='$EMAIL', 
