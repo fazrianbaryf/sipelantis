@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="admin/assets/img/favicon.png" rel="icon">
+    <link href="admin/assets/img/logo-icon.png" rel="icon">
     <link href="admin/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -75,15 +75,15 @@
                         </div>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="admin/assets/img/slides-1.jpg" class="d-block mx-auto w-100"
+                                <img src="admin/assets/img/slide1-.jpg" class="d-block mx-auto w-100"
                                     style="height: 85vh;" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="admin/assets/img/slides-2.jpg" class="d-block mx-auto w-100"
+                                <img src="admin/assets/img/slide2--.jpg" class="d-block mx-auto w-100"
                                     style="height: 85vh;" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <img src="admin/assets/img/slides-3.jpg" class="d-block mx-auto w-100"
+                                <img src="admin/assets/img/slide3--.jpg" class="d-block mx-auto w-100"
                                     style="height: 85vh;" alt="...">
                             </div>
                         </div>
@@ -100,23 +100,43 @@
                         </button>
                     </div>
                 </div>
-                <div class="container d-flex flex-column align-items-center justify-content-center text-center">
-                    <h3>SIPELAN'TIS</h3>
-                    <p>Selamat Datang Di Sistem Penjadwalan Otomatis SMK Binakarya 1</p>
-                    <p>SMK Bina Karya 1 menyediakan program kejuruan di berbagai bidang, seperti teknik, industri,
+                <div class="container d-flex flex-column align-items-center justify-content-center text-center"
+                    style="max-width: 1100px; margin: 0 auto; margin-bottom: 20px;">
+                    <h3 class="mb-4">SIPELAN'TIS</h3>
+                    <p>Selamat datang di Sistem Penjadwalan Otomatis SMK Binakarya 1.</p>
+
+                    <p style="text-align: justify; text-indent: 40px;">
+                        SMK Bina Karya 1 menyediakan program kejuruan di berbagai bidang, seperti teknik, industri,
                         bisnis, dan kejuruan lainnya sesuai dengan kebutuhan industri dan pasar kerja setempat. Dengan
                         fasilitas modern dan pendekatan pembelajaran yang terkini, sekolah ini berkomitmen untuk
                         menciptakan lingkungan belajar yang kondusif bagi perkembangan siswa secara akademis dan
-                        praktis.</p>
+                        praktis. Kurikulum yang disusun secara hati-hati mencakup kombinasi mata pelajaran teoritis dan
+                        pelatihan praktis, memastikan
+                        bahwa setiap siswa tidak hanya memperoleh pengetahuan akademis yang solid, tetapi juga
+                        keterampilan
+                        praktis yang dibutuhkan dalam industri. Fasilitas modern seperti laboratorium teknologi,
+                        workshop, dan perpustakaan yang lengkap mendukung proses pembelajaran yang interaktif dan
+                        inovatif.
 
-                    <p>Fasilitas pendidikan SMK Bina Karya 1 melibatkan ruang kelas yang nyaman, laboratorium yang
+                    </p>
+
+                    <p style="text-align: justify; text-indent: 40px;">
+                        Fasilitas pendidikan SMK Bina Karya 1 melibatkan ruang kelas yang nyaman, laboratorium yang
                         dilengkapi dengan peralatan terkini, perpustakaan untuk mendukung riset dan pengembangan
-                        pengetahuan, dan fasilitas olahraga untuk mendukung aspek kesehatan dan kebugaran siswa.</p>
+                        pengetahuan, serta fasilitas olahraga untuk mendukung aspek kesehatan dan kebugaran siswa.
+                        Di samping itu, SMK Bina Karya 1 juga memberikan penekanan pada pengembangan
+                        keterampilan soft skills, kepemimpinan, dan kolaborasi antar siswa. Melalui program
+                        ekstrakurikuler dan kegiatan sosial, sekolah ini bertujuan untuk membentuk karakter siswa yang
+                        tangguh, kreatif, dan siap menghadapi tantangan dunia kerja modern.
 
-                    <p>Sebagai bagian dari pendekatan pendidikan yang holistik, SMK Bina Karya 1 juga menekankan
-                        kegiatan ekstrakurikuler, partisipasi siswa dalam kegiatan sosial, dan kerjasama dengan industri
-                        lokal untuk memberikan pengalaman praktis kepada siswa.</p>
+
                 </div>
+
+
+
+
+
+
                 <!-- Default Card -->
                 <div class="card justify-content-center">
                     <div class=" card-body">

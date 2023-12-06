@@ -27,14 +27,14 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                             <!-- Vertically centered Modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#verticalycentered">
-                                <i class="bi bi-building-fill-add"></i>
+                                <i class="bi bi-journal-plus"></i>
                                 Tambah Mata Pelajaran
                             </button>
-                            <div class="modal fade" id="verticalycentered" tabindex="-1">
+                            <div class=" modal fade" id="verticalycentered" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <i class="bi bi-building-fill-add pe-2"></i>
+                                            <i class="bi bi-journal-plus pe-2"></i>
                                             <h5 class="modal-title">Tambah Mata Pelajaran</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -42,30 +42,31 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <div class="modal-body">
                                             <form class="row g-3">
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">Nama Mata
+                                                    <label for="namaMapel" class="form-label">Nama Mata
                                                         Pelajaran</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="namaMapel">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">Jurusan</label>
-                                                    <input type="text" class="form-control">
+                                                    <label for="namaJurusan" class="form-label">Jurusan</label>
+                                                    <input type="text" class="form-control" name="namaJurusan">
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">Periode</label>
-                                                    <input type="text" class="form-control">
+                                                    <label for="namaPeriode" class="form-label">Periode</label>
+                                                    <input type="text" class="form-control" name="namaPeriode">
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <label for="validationCustom04" class="form-label">Guru
+                                                    <label for="guruPengampu" class="form-label">Guru
                                                         Pengampu</label>
-                                                    <select class="form-select" id="validationCustom04" required>
+                                                    <select class="form-select" id="guruPengampu" required
+                                                        name="guruPengampu">
                                                         <option selected disabled value="">Choose...</option>
                                                         <option>...</option>
                                                         <option>...</option>
                                                     </select>
                                                 </div>
-                                                <button type="button" class="btn btn-primary">
-                                                    <i class="bi bi-building-fill-add"></i>
+                                                <button type=" button" class="btn btn-primary">
+                                                    <i class="bi bi-journal-plus"></i>
                                                     Tambah Mata Pelajaran
                                                 </button>
                                             </form>
@@ -96,11 +97,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <td class="text-center d-flex justify-content-center">
                                         <div>
                                             <!-- Modal Edit Guru -->
-                                            <button type="button" class="btn btn-success rounded-pill btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#edit-Mapel">
-                                                <i class="bi bi-building-fill-gear"></i>
-                                                Edit Mata Pelajaran
-                                            </button>
+                                            <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                                style="cursor: pointer;" data-bs-toggle="modal"
+                                                data-bs-target="#editmodal" title="Edit Guru"></button>
+
                                             <div class="modal fade" id="edit-Mapel" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
@@ -110,29 +110,32 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="text-start modal-body">
+                                                        <div class="modal-body">
                                                             <form class="row g-3">
                                                                 <div class="col-12">
-                                                                    <label for="inputNanme4" class="form-label">Nama
-                                                                        Mata Pelajaran</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <label for="namaMapel" class="form-label">Nama Mata
+                                                                        Pelajaran</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="namaMapel">
                                                                 </div>
                                                                 <div class="col-12">
-                                                                    <label for="inputNanme4" class="form-label">Jurusan
-                                                                    </label>
-                                                                    <input type="text" class="form-control">
+                                                                    <label for="namaJurusan"
+                                                                        class="form-label">Jurusan</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="namaJurusan">
                                                                 </div>
+
                                                                 <div class="col-12">
-                                                                    <label for="inputNanme4" class="form-label">Periode
-                                                                    </label>
-                                                                    <input type="text" class="form-control">
+                                                                    <label for="namaPeriode"
+                                                                        class="form-label">Periode</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="namaPeriode">
                                                                 </div>
                                                                 <div class="col-md-12">
-                                                                    <label for="validationCustom04"
-                                                                        class="form-label">Guru
+                                                                    <label for="guruPengampu" class="form-label">Guru
                                                                         Pengampu</label>
-                                                                    <select class="form-select" id="validationCustom04"
-                                                                        required>
+                                                                    <select class="form-select" id="guruPengampu"
+                                                                        required name="guruPengampu">
                                                                         <option selected disabled value="">Choose...
                                                                         </option>
                                                                         <option>...</option>
@@ -149,11 +152,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 </div>
                                             </div><!-- End Edit Modal-->
                                             <!-- Disabled Backdrop Modal -->
-                                            <button type="button" class="btn btn-danger rounded-pill btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#delete-Mapel">
-                                                <i class="bi bi-building-fill-dash"></i>
-                                                Delete
-                                            </button>
+                                            <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                style="cursor: pointer;" data-bs-toggle="modal"
+                                                data-bs-target="#delete-user" title="Delete"></button>
+
                                             <div class="modal fade-sm" id="delete-Mapel" tabindex="-1"
                                                 data-bs-backdrop="false">
                                                 <div class="modal-dialog modal-sm">

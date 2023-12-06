@@ -110,14 +110,12 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <td class="text-center d-flex justify-content-center">
                                             <div>
                                                 <!-- Modal Edit Staff -->
-                                                <button type="button"
-                                                    class="btn btn-success rounded-pill btn-sm btn-edit-user"
-                                                    data-bs-toggle="modal"
+                                                <button type="button" class="btn btn-warning btn-sm bi bi-pencil-square"
+                                                    data-bs-toggle=" modal"
                                                     data-bs-target="#editmodal<?=$row['id_m_user'];?>"
                                                     data-user-id="<?=$row['id_m_user'];?>">
-                                                    <i class="bi bi-person-gear"></i>
-                                                    Edit Users
                                                 </button>
+
 
                                                 <div class="modal fade" id="editmodal<?=$row['id_m_user'];?>">
                                                     <div class="modal-dialog modal-dialog-centered">
@@ -184,12 +182,11 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     </div>
                                                 </div><!-- End Edit Modal-->
                                                 <!-- Disabled Backdrop Modal -->
-                                                <button type="button" class="btn btn-danger rounded-pill btn-sm"
+                                                <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#delete-user<?=$row['id_m_user'];?>">
-                                                    <i class="bi bi-person-gear"></i>
-                                                    Delete
                                                 </button>
+
                                                 <div class="modal fade-sm" id="delete-user<?=$row['id_m_user'];?>"
                                                     data-bs-backdrop="false">
                                                     <div class="modal-dialog modal-sm">

@@ -8,7 +8,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
 <main id="main" class="main">
 
     <div class="pagetitle">
-        <h1>Data Guru</h1>
+        <h1>Data Ruangan</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="dashboard.php">Home</a></li>
@@ -42,13 +42,13 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <div class="modal-body">
                                             <form class="row g-3">
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">Nama Ruangan</label>
-                                                    <input type="text" class="form-control">
+                                                    <label for="namaRuangan" class="form-label">Nama Ruangan</label>
+                                                    <input type="text" class="form-control" name="namaRuangan">
                                                 </div>
                                                 <div class="col-12">
                                                     <label for="inputEmail4" class="form-label">Kapasitas
                                                         Ruangan</label>
-                                                    <input type="number" class="form-control">
+                                                    <input type="number" class="form-control" name="namaKapasitas">
                                                 </div>
                                                 <button type="button" class="btn btn-primary">
                                                     <i class="bi bi-building-fill-add"></i>
@@ -78,11 +78,9 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <td class="text-center d-flex justify-content-center">
                                         <div>
                                             <!-- Modal Edit Guru -->
-                                            <button type="button" class="btn btn-success rounded-pill btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#edit-ruangan">
-                                                <i class="bi bi-building-fill-gear"></i>
-                                                Edit Ruangan
-                                            </button>
+                                            <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                                style="cursor: pointer;" data-bs-toggle="modal"
+                                                data-bs-target="#editmodal" title="Edit Guru"></button>
                                             <div class="modal fade" id="edit-ruangan" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
@@ -92,18 +90,20 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             <button type="button" class="btn-close"
                                                                 data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
-                                                        <div class="text-start modal-body">
+                                                        <div class="modal-body">
                                                             <form class="row g-3">
                                                                 <div class="col-12">
-                                                                    <label for="inputNanme4" class="form-label">Nama
+                                                                    <label for="namaRuangan" class="form-label">Nama
                                                                         Ruangan</label>
-                                                                    <input type="text" class="form-control">
+                                                                    <input type="text" class="form-control"
+                                                                        name="namaRuangan">
                                                                 </div>
                                                                 <div class="col-12">
                                                                     <label for="inputEmail4"
                                                                         class="form-label">Kapasitas
                                                                         Ruangan</label>
-                                                                    <input type="number" class="form-control">
+                                                                    <input type="number" class="form-control"
+                                                                        name="namaKapasitas">
                                                                 </div>
                                                                 <button type="button" class="btn btn-primary">
                                                                     <i class="bi bi-building-fill-add"></i>
@@ -115,11 +115,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 </div>
                                             </div><!-- End Edit Modal-->
                                             <!-- Disabled Backdrop Modal -->
-                                            <button type="button" class="btn btn-danger rounded-pill btn-sm"
-                                                data-bs-toggle="modal" data-bs-target="#delete-ruangan">
-                                                <i class="bi bi-building-fill-dash"></i>
-                                                Delete
-                                            </button>
+                                            <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                style="cursor: pointer;" data-bs-toggle="modal"
+                                                data-bs-target="#delete-user" title="Delete"></button>
+
                                             <div class="modal fade-sm" id="delete-ruangan" tabindex="-1"
                                                 data-bs-backdrop="false">
                                                 <div class="modal-dialog modal-sm">
@@ -128,10 +127,9 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             <h5 class="modal-title">Delete Ruangan ?</h5>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <button type="button"
-                                                                class="btn btn-primary">Delete</button>
+                                                            <i class="bi bi-trash-fill " style="cursor: pointer;"
+                                                                data-bs-toggle="modal" data-bs-target="#delete-user"
+                                                                title="Delete"></i>
                                                         </div>
                                                     </div>
                                                 </div>

@@ -10,7 +10,7 @@
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/logo-icon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
@@ -93,6 +93,7 @@
                                         <div class="col-12">
                                             <input class="btn btn-primary w-100" type="submit" name="login">
                                         </div>
+                                        <a class="bi bi-box-arrow-in-left text-end" href="../index.php">Back</a>
                                     </form>
                                 </div>
                             </div>

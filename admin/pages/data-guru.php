@@ -43,6 +43,11 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                             <form class="row g-3" action="../backend/prosses-data-guru.php"
                                                 method="post">
                                                 <div class="col-12">
+                                                    <label for="kodeGuru" class="form-label">Kode Guru</label>
+                                                    <input type="text" class="form-control" id="kodeGuru"
+                                                        name="kodeGuru">
+                                                </div>
+                                                <div class="col-12">
                                                     <label for="NIP" class="form-label">NIP</label>
                                                     <input type="text" class="form-control" id="NIP" name="NIP">
                                                 </div>
@@ -88,29 +93,40 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
+                                        <th scope="col">Kode Guru</th>
                                         <th scope="col">NIP</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">No Telepon</th>
+                                        <th scope="col">No Tlpn</th>
                                         <th scope="col">Jenis Kelamin</th>
+                                        <th scope="col">pengampu Mapel</th>
                                         <th scope="col" style="text-align: center;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                require '../config/db.php';
+
+                $guru = mysqli_query($mysqli,"SELECT * FROM tbl_m_guru");
+                $no = 1;
+
+                while($row = mysqli_fetch_assoc($guru)) {
+            ?>
                                     <tr>
-                                        <th scope="row">1</th>
-                                        <td>Brandon Jacob</td>
-                                        <td>Designer</td>
-                                        <td>28</td>
-                                        <td></td>
+                                        <th scope="row"><?=$no++;?></th>
+                                        <td><?=$row['kode_guru'];?></td>
+                                        <td><?=$row['nip_guru'];?></td>
+                                        <td><?=$row['nama_guru'];?></td>
+                                        <td><?=$row['no_telp_guru'];?></td>
+                                        <td><?=$row['jenis_kelamin'];?></td>
+                                        <td><?=$row['pengampu_mapel'];?></td>
 
                                         <td class="text-center d-flex justify-content-center">
                                             <div>
                                                 <!-- Modal Edit Guru -->
-                                                <button type="button" class="btn btn-success rounded-pill btn-sm"
-                                                    data-bs-toggle="modal" data-bs-target="#editmodal">
-                                                    <i class="bi bi-person-gear"></i>
-                                                    Edit Guru
-                                                </button>
+                                                <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                                    style="cursor: pointer;" data-bs-toggle="modal"
+                                                    data-bs-target="#editmodal" title="Edit Guru"></button>
+
                                                 <div class="modal fade" id="editmodal" tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
@@ -122,36 +138,42 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             </div>
                                                             <div class="text-start modal-body">
                                                                 <form class="row g-3" action="" method="post">
+
                                                                     <div class="col-12">
-                                                                        <label for="inputNanme4"
-                                                                            class="form-label">NIP</label>
+                                                                        <label for="kodeGuru" class="form-label">Kode
+                                                                            Guru</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="inputNanme4">
+                                                                            id="kodeGuru" name="kodeGuru">
                                                                     </div>
                                                                     <div class="col-12">
-                                                                        <label for="inputEmail4"
+                                                                        <label for="NIP" class="form-label">NIP</label>
+                                                                        <input type="text" class="form-control" id="NIP"
+                                                                            name="NIP">
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <label for="nama"
                                                                             class="form-label">Nama</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="inputEmail4">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label for="validationCustom04"
-                                                                            class="form-label">No Telepon</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="inputPassword4">
+                                                                            id="nama" name="namaGuru">
                                                                     </div>
                                                                     <div class="col-12">
-                                                                        <label for="inputnumber"
-                                                                            class="form-label">Pengampu Mapel</label>
+                                                                        <label for="no_telp" class="form-label">No
+                                                                            Telepon</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="inputnumber">
+                                                                            id="no_telp" name="no_telp">
+                                                                    </div>
+                                                                    <div class="col-12">
+                                                                        <label for="pengampuMapel"
+                                                                            class="form-label">Pengampu
+                                                                            Mapel</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="pengampuMapel" name="pengampuMapel">
                                                                     </div>
                                                                     <div class="col-md-12">
-                                                                        <label for="validationCustom04"
-                                                                            class="form-label">Jenis
+                                                                        <label for="jk" class="form-label">Jenis
                                                                             Kelamin</label>
-                                                                        <select class="form-select"
-                                                                            id="validationCustom04" required>
+                                                                        <select class="form-select" id="jk" required
+                                                                            name="jk">
                                                                             <option selected disabled value="">Choose...
                                                                             </option>
                                                                             <option>Laki-Laki</option>
@@ -168,11 +190,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     </div>
                                                 </div><!-- End Edit Modal-->
                                                 <!-- Disabled Backdrop Modal -->
-                                                <button type="button" class="btn btn-danger rounded-pill btn-sm"
-                                                    data-bs-toggle="modal" data-bs-target="#delete-user">
-                                                    <i class="bi bi-person-gear"></i>
-                                                    Delete
-                                                </button>
+                                                <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                    style="cursor: pointer;" data-bs-toggle="modal"
+                                                    data-bs-target="#delete-user" title="Delete"></button>
+
                                                 <div class="modal fade-sm" id="delete-user" tabindex="-1"
                                                     data-bs-backdrop="false">
                                                     <div class="modal-dialog modal-sm">
@@ -193,7 +214,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         </td>
 
 
-
+                                        <?php } ?>
                                 </tbody>
                             </table>
                             <!-- End Bordered Table -->
