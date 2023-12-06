@@ -27,14 +27,14 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                             <!-- Vertically centered Modal -->
                             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                 data-bs-target="#verticalycentered">
-                                <i class="bi bi-person-add"></i>
+                                <i class="bi bi-building-add"></i>
                                 Tambah Kelas
                             </button>
                             <div class="modal fade" id="verticalycentered" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <i class="bi bi-person-add pe-2"></i>
+                                            <i class="bi bi-building-add pe-2"></i>
                                             <h5 class="modal-title">Tambah Kelas</h5>
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
@@ -42,17 +42,19 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <div class="modal-body">
                                             <form class="row g-3">
                                                 <div class="col-12">
-                                                    <label for="inputNanme4" class="form-label">Kelas</label>
-                                                    <input type="text" class="form-control" id="inputNanme4">
+                                                    <label for="namaKelas" class="form-label">Kelas</label>
+                                                    <input type="text" class="form-control" id="namaKelas"
+                                                        name="namaKelas">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputEmail4" class="form-label">Jumlah Siswa</label>
-                                                    <input type="text" class="form-control" id="inputEmail4">
+                                                    <label for="namaJumlahsiwa" class="form-label">Jumlah Siswa</label>
+                                                    <input type="text" class="form-control" id="namaJumlahsiwa"
+                                                        name="namaJumlahsiwa">
                                                 </div>
 
 
                                                 <button type="button" class="btn btn-primary">
-                                                    <i class="bi bi-person-add"></i>
+                                                    <i class="bi bi-building-add"></i>
                                                     Tambah Kelas
                                                 </button>
                                             </form>
@@ -62,7 +64,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                             </div><!-- End Vertically centered Modal-->
                         </div>
                         <!-- Bordered Table -->
-                        <table class="table datatable">
+                        <table class=" table datatable">
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
@@ -79,66 +81,71 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 <td class="text-center d-flex justify-content-center">
                                     <div>
                                         <!-- Modal Edit Guru -->
-                                        <button type="button" class="btn btn-success rounded-pill btn-sm"
-                                            data-bs-toggle="modal" data-bs-target="#editmodal">
-                                            <i class="bi bi-person-gear"></i>
-                                            Edit Kelas
-                                        </button>
+                                        <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                            style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#editmodal"
+                                            title="Edit Guru"></button>
+
                                         <div class="modal fade" id="editmodal" tabindex="-1">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <i class="bi bi-person-gear pe-2"></i>
-                                                        <h5 class="modal-title">Edit Kelas</h5>
+                                                        <h5 class="modal-title">Edit Kelas
+                                                        </h5>
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="text-start modal-body">
                                                         <form class="row g-3">
-                                                            <form class="row g-3">
-                                                                <div class="col-12">
-                                                                    <label for="inputNanme4"
-                                                                        class="form-label">Kelas</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inputNanme4">
+                                                            <div class="col-12">
+                                                                <div class="modal-body">
+                                                                    <form class="row g-3">
+                                                                        <div class="col-12">
+                                                                            <label for="namaKelas"
+                                                                                class="form-label">Kelas</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="namaKelas" name="namaKelas">
+                                                                        </div>
+                                                                        <div class="col-12">
+                                                                            <label for="namaJumlahsiwa"
+                                                                                class="form-label">Jumlah
+                                                                                Siswa</label>
+                                                                            <input type="text" class="form-control"
+                                                                                id="namaJumlahsiwa"
+                                                                                name="namaJumlahsiwa">
+                                                                        </div>
+                                                                        <button type="button" class="btn btn-primary">
+                                                                            <i class="bi bi-person-add"></i>
+                                                                            Edit Kelas
+                                                                        </button>
+                                                                    </form>
                                                                 </div>
-                                                                <div class="col-12">
-                                                                    <label for="inputEmail4" class="form-label">Jumlah
-                                                                        Siswa</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="inputEmail4">
-                                                                </div>
-                                                                <button type="button" class="btn btn-primary">
-                                                                    <i class="bi bi-person-add"></i>
-                                                                    Edit Kelas
-                                                                </button>
-                                                            </form>
+                                                            </div>
                                                     </div>
-                                                </div>
+                                                </div><!-- End Edit Modal-->
+                                                <!-- Disabled Backdrop Modal -->
+                                                <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                    style="cursor: pointer;" data-bs-toggle="modal"
+                                                    data-bs-target="#delete-user" title="Delete"></button>
+
+                                                <div class="modal fade-sm" id="delete-user" tabindex="-1"
+                                                    data-bs-backdrop="false">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Delete
+                                                                    Kelas?</h5>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary">Delete</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div><!-- End Disabled Backdrop Modal-->
                                             </div>
-                                        </div><!-- End Edit Modal-->
-                                        <!-- Disabled Backdrop Modal -->
-                                        <button type="button" class="btn btn-danger rounded-pill btn-sm"
-                                            data-bs-toggle="modal" data-bs-target="#delete-user">
-                                            <i class="bi bi-person-gear"></i>
-                                            Delete
-                                        </button>
-                                        <div class="modal fade-sm" id="delete-user" tabindex="-1"
-                                            data-bs-backdrop="false">
-                                            <div class="modal-dialog modal-sm">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title">Delete Kelas?</h5>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-bs-dismiss="modal">Close</button>
-                                                        <button type="button" class="btn btn-primary">Delete</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div><!-- End Disabled Backdrop Modal-->
-                                    </div>
                                 </td>
                         </table>
                         <!-- End Bordered Table -->
