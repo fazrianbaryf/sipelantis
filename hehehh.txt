@@ -1,3 +1,0 @@
-apa sih bro
-sdahjksa ansmn/sipelantis (master)
-$ git commit -m "tes"
