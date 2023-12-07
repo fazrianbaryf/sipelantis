@@ -30,7 +30,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 <i class="bi bi-journal-plus"></i>
                                 Tambah Mata Pelajaran
                             </button>
-                            <div class=" modal fade" id="verticalycentered" tabindex="-1">
+                            <div class="modal fade" id="verticalycentered" tabindex="-1">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -99,7 +99,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                             <!-- Modal Edit Guru -->
                                             <button class="btn btn-warning btn-sm bi bi-pencil-square  "
                                                 style="cursor: pointer;" data-bs-toggle="modal"
-                                                data-bs-target="#editmodal" title="Edit Guru"></button>
+                                                data-bs-target="#edit-Mapel" title="Edit Guru"></button>
 
                                             <div class="modal fade" id="edit-Mapel" tabindex="-1">
                                                 <div class="modal-dialog modal-dialog-centered">

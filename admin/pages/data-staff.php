@@ -111,7 +111,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                             <div>
                                                 <!-- Modal Edit Staff -->
                                                 <button type="button" class="btn btn-warning btn-sm bi bi-pencil-square"
-                                                    data-bs-toggle=" modal"
+                                                    data-bs-toggle="modal"
                                                     data-bs-target="#editmodal<?=$row['id_m_user'];?>"
                                                     data-user-id="<?=$row['id_m_user'];?>">
                                                 </button>
