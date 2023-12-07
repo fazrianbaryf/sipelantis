@@ -25,4 +25,44 @@ if(isset($_POST['add-guru'])){
     }
 
 }
+
+if (isset($_POST['edit-guru'])) {
+    global $mysqli;
+
+    $ID = mysqli_real_escape_string($mysqli, $_POST['id_guru']);
+    $KODE_GURU = mysqli_real_escape_string($mysqli, $_POST['kodeGuru']);
+    $NIP = mysqli_real_escape_string($mysqli, $_POST['NIP']);
+    $NAMA_GURU = mysqli_real_escape_string($mysqli, $_POST['namaGuru']);
+    $TLP_GURU = mysqli_real_escape_string($mysqli, $_POST['no_telp']);
+    $P_MAPEL = mysqli_real_escape_string($mysqli, $_POST['pengampuMapel']);
+    $JK = mysqli_real_escape_string($mysqli, $_POST['jk']);
+
+    $queryUpdateGuru = "UPDATE tbl_m_guru SET 
+                            kode_guru='$KODE_GURU', 
+                            nip_guru='$NIP', 
+                            nama_guru ='$NAMA_GURU',
+                            no_telp_guru ='$TLP_GURU',
+                            pengampu_mapel ='$P_MAPEL',
+                            jenis_kelamin ='$JK',
+                            updated_date_tmg=NOW()
+                            WHERE id_guru='$ID'";
+    
+
+    $resultUpdateGuru = mysqli_query($mysqli, $queryUpdateGuru);
+
+    if ($resultUpdateGuru) {
+        echo "Edit pengguna berhasil.";
+    } else {
+        echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
+    }
+
+}
+
+//delete users
+if(isset($_GET['id_guru'])){
+    global $mysqli;
+    
+    mysqli_query($mysqli, "delete FROM tbl_m_guru WHERE id_guru='$_GET[id_guru]'");
+    echo "Data Sudah di hapus";
+}
 ?>

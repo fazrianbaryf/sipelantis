@@ -40,17 +40,18 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="row g-3">
+                                            <form class="row g-3" action="../backend/prosses-data-ruangan.php"
+                                                method="post">
                                                 <div class="col-12">
                                                     <label for="namaRuangan" class="form-label">Nama Ruangan</label>
                                                     <input type="text" class="form-control" name="namaRuangan">
                                                 </div>
                                                 <div class="col-12">
-                                                    <label for="inputEmail4" class="form-label">Kapasitas
+                                                    <label for="kapasitasRuangan" class="form-label">Kapasitas
                                                         Ruangan</label>
-                                                    <input type="number" class="form-control" name="namaKapasitas">
+                                                    <input type="number" class="form-control" name="kapasitasRuangan">
                                                 </div>
-                                                <button type="button" class="btn btn-primary">
+                                                <button type="submit" class="btn btn-primary" name="add-ruangan">
                                                     <i class="bi bi-building-fill-add"></i>
                                                     Tambah Ruangan
                                                 </button>
@@ -71,17 +72,27 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                    require '../config/db.php';
+
+                                    $ruangan = mysqli_query($mysqli,"SELECT * FROM tbl_m_ruangan");
+                                    $no = 1;
+
+                                    while($row = mysqli_fetch_assoc($ruangan)) {
+                                ?>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Brandon Jacob</td>
-                                    <td>100</td>
+                                    <th scope="row"><?=$no++;?></th>
+                                    <td><?=$row['nama_ruangan'];?></td>
+                                    <td><?=$row['kapasitas_ruangan'];?></td>
                                     <td class="text-center d-flex justify-content-center">
                                         <div>
                                             <!-- Modal Edit Guru -->
                                             <button class="btn btn-warning btn-sm bi bi-pencil-square  "
                                                 style="cursor: pointer;" data-bs-toggle="modal"
-                                                data-bs-target="#edit-ruangan" title="Edit Guru"></button>
-                                            <div class="modal fade" id="edit-ruangan" tabindex="-1">
+                                                data-bs-target="#edit-ruangan<?=$row['id_ruangan'];?>"
+                                                title="Edit Guru"></button>
+                                            <div class="modal fade" id="edit-ruangan<?=$row['id_ruangan'];?>"
+                                                tabindex="-1">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -92,20 +103,25 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                         </div>
                                                         <div class="modal-body">
                                                             <form class="row g-3">
+                                                                <input type="hidden" value="<?=$row['id_ruangan'];?>"
+                                                                    name="id_ruangan">
                                                                 <div class="col-12">
                                                                     <label for="namaRuangan" class="form-label">Nama
                                                                         Ruangan</label>
                                                                     <input type="text" class="form-control"
+                                                                        value="<?=$row['nama_ruangan'];?>"
                                                                         name="namaRuangan">
                                                                 </div>
                                                                 <div class="col-12">
-                                                                    <label for="inputEmail4"
+                                                                    <label for="kapasitasRuangan"
                                                                         class="form-label">Kapasitas
                                                                         Ruangan</label>
                                                                     <input type="number" class="form-control"
+                                                                        value="<?=$row['kapasitas_ruangan'];?>"
                                                                         name="namaKapasitas">
                                                                 </div>
-                                                                <button type="button" class="btn btn-primary">
+                                                                <button type="submit" class="btn btn-primary"
+                                                                    name="edit-ruangan">
                                                                     <i class="bi bi-building-fill-add"></i>
                                                                     Tambah Ruangan
                                                                 </button>
@@ -115,27 +131,31 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 </div>
                                             </div><!-- End Edit Modal-->
                                             <!-- Disabled Backdrop Modal -->
-                                            <button class="btn btn-danger btn-sm bi bi-trash-fill"
-                                                style="cursor: pointer;" data-bs-toggle="modal"
-                                                data-bs-target="#delete-user" title="Delete"></button>
+                                            <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                data-bs-toggle="modal"
+                                                data-bs-target="#delete-user<?=$row['id_ruangan'];?>">
+                                            </button>
 
-                                            <div class="modal fade-sm" id="delete-ruangan" tabindex="-1"
+                                            <div class="modal fade-sm" id="delete-user<?=$row['id_ruangan'];?>"
                                                 data-bs-backdrop="false">
                                                 <div class="modal-dialog modal-sm">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Delete Ruangan ?</h5>
+                                                            <h5 class="modal-title">Delete Users?</h5>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <i class="bi bi-trash-fill " style="cursor: pointer;"
-                                                                data-bs-toggle="modal" data-bs-target="#delete-user"
-                                                                title="Delete"></i>
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-bs-dismiss="modal">Close</button>
+                                                            <a type="button"
+                                                                href="../backend/prosses-data-ruangan.php?id_ruangan=<?=$row['id_ruangan'];?>"
+                                                                class="btn btn-primary">Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div><!-- End Disabled Backdrop Modal-->
                                         </div>
                                     </td>
+                                    <?php } ?>
                             </tbody>
                         </table>
                         <!-- End Bordered Table -->

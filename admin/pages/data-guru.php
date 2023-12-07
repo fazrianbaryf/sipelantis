@@ -104,13 +104,13 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 </thead>
                                 <tbody>
                                     <?php
-                require '../config/db.php';
+                                        require '../config/db.php';
 
-                $guru = mysqli_query($mysqli,"SELECT * FROM tbl_m_guru");
-                $no = 1;
+                                        $guru = mysqli_query($mysqli,"SELECT * FROM tbl_m_guru");
+                                        $no = 1;
 
-                while($row = mysqli_fetch_assoc($guru)) {
-            ?>
+                                        while($row = mysqli_fetch_assoc($guru)) {
+                                    ?>
                                     <tr>
                                         <th scope="row"><?=$no++;?></th>
                                         <td><?=$row['kode_guru'];?></td>
@@ -125,9 +125,11 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 <!-- Modal Edit Guru -->
                                                 <button class="btn btn-warning btn-sm bi bi-pencil-square  "
                                                     style="cursor: pointer;" data-bs-toggle="modal"
-                                                    data-bs-target="#editmodal" title="Edit Guru"></button>
+                                                    data-bs-target="#editmodal<?=$row['id_guru'];?>"
+                                                    title="Edit Guru"></button>
 
-                                                <div class="modal fade" id="editmodal" tabindex="-1">
+                                                <div class="modal fade" id="editmodal<?=$row['id_guru'];?>"
+                                                    tabindex="-1">
                                                     <div class="modal-dialog modal-dialog-centered">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -137,50 +139,59 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                     data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="text-start modal-body">
-                                                                <form class="row g-3" action="" method="post">
-
+                                                                <form class="row g-3"
+                                                                    action="../backend/prosses-data-guru.php"
+                                                                    method="post">
+                                                                    <input type="hidden" name="id_guru"
+                                                                        value="<?=$row['id_guru'];?>">
                                                                     <div class="col-12">
                                                                         <label for="kodeGuru" class="form-label">Kode
                                                                             Guru</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="kodeGuru" name="kodeGuru">
+                                                                            id="kodeGuru" name="kodeGuru"
+                                                                            value="<?=$row['kode_guru'];?>">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="NIP" class="form-label">NIP</label>
                                                                         <input type="text" class="form-control" id="NIP"
-                                                                            name="NIP">
+                                                                            name="NIP" value="<?=$row['nip_guru'];?>">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="nama"
                                                                             class="form-label">Nama</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="nama" name="namaGuru">
+                                                                            id="nama" name="namaGuru"
+                                                                            value="<?=$row['nama_guru'];?>">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="no_telp" class="form-label">No
                                                                             Telepon</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="no_telp" name="no_telp">
+                                                                            id="no_telp" name="no_telp"
+                                                                            value="<?=$row['no_telp_guru'];?>">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="pengampuMapel"
                                                                             class="form-label">Pengampu
                                                                             Mapel</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="pengampuMapel" name="pengampuMapel">
+                                                                            id="pengampuMapel" name="pengampuMapel"
+                                                                            value="<?=$row['pengampu_mapel'];?>">
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <label for="jk" class="form-label">Jenis
                                                                             Kelamin</label>
                                                                         <select class="form-select" id="jk" required
                                                                             name="jk">
-                                                                            <option selected disabled value="">Choose...
+                                                                            <option selected disabled>
+                                                                                <?=$row['jenis_kelamin'];?>
                                                                             </option>
                                                                             <option>Laki-Laki</option>
                                                                             <option>Perempuan</option>
                                                                         </select>
                                                                     </div>
-                                                                    <button type="button" class="btn btn-primary">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        name="edit-guru">
                                                                         <i class="bi bi-person-gear"></i>
                                                                         Edit Guru
                                                                     </button>
@@ -192,10 +203,11 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 <!-- Disabled Backdrop Modal -->
                                                 <button class="btn btn-danger btn-sm bi bi-trash-fill"
                                                     style="cursor: pointer;" data-bs-toggle="modal"
-                                                    data-bs-target="#delete-user" title="Delete"></button>
+                                                    data-bs-target="#delete-user<?=$row['id_guru'];?>"
+                                                    title="Delete"></button>
 
-                                                <div class="modal fade-sm" id="delete-user" tabindex="-1"
-                                                    data-bs-backdrop="false">
+                                                <div class="modal fade-sm" id="delete-user<?=$row['id_guru'];?>"
+                                                    tabindex="-1" data-bs-backdrop="false">
                                                     <div class="modal-dialog modal-sm">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -204,8 +216,8 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <button type="button"
-                                                                    class="btn btn-primary">Delete</button>
+                                                                <a type="button" class="btn btn-primary"
+                                                                    href="../backend/prosses-data-guru.php?id_guru=<?=$row['id_guru'];?>">Delete</a>
                                                             </div>
                                                         </div>
                                                     </div>

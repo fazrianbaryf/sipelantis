@@ -94,13 +94,13 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 </thead>
                                 <tbody>
                                     <?php
-                require '../config/db.php';
+                                        require '../config/db.php';
 
-                $staff_users = mysqli_query($mysqli,"SELECT * FROM tbl_m_user");
-                $no = 1;
+                                        $staff_users = mysqli_query($mysqli,"SELECT * FROM tbl_m_user");
+                                        $no = 1;
 
-                while($row = mysqli_fetch_assoc($staff_users)) {
-            ?>
+                                        while($row = mysqli_fetch_assoc($staff_users)) {
+                                    ?>
                                     <tr>
                                         <th scope="row"><?=$no++;?></th>
                                         <td><?=$row['name_m_user'];?></td>
