@@ -40,7 +40,8 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <form class="row g-3" action="../backend/prosses-staff.php" method="post">
+                                            <form class="row g-3" action="../backend/prosses-data-staff.php"
+                                                method="post">
                                                 <div class="col-12">
                                                     <label for="name" class="form-label">Nama</label>
                                                     <input type="text" class="form-control" id="name" name="name">
@@ -108,9 +109,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <td><?=$row['role_m_user'];?></td>
 
                                         <td class="text-center d-flex justify-content-center">
-                                            <div>
+                                            <div class="d-flex">
                                                 <!-- Modal Edit Staff -->
-                                                <button type="button" class="btn btn-warning btn-sm bi bi-pencil-square"
+                                                <button type="button"
+                                                    class="btn btn-warning btn-sm bi bi-pencil-square ms-1"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#editmodal<?=$row['id_m_user'];?>"
                                                     data-user-id="<?=$row['id_m_user'];?>">
@@ -128,7 +130,8 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                             </div>
                                                             <div class="text-start modal-body">
                                                                 <form class="row g-3"
-                                                                    action="../backend/prosses-staff.php" method="post">
+                                                                    action="../backend/prosses-data-staff.php"
+                                                                    method="post">
                                                                     <input type="hidden" name="id_m_user"
                                                                         value="<?=$row['id_m_user'];?>">
                                                                     <div class="col-12">
@@ -137,7 +140,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                         <input type="text" class="form-control"
                                                                             id="name"
                                                                             value="<?= $row['name_m_user']; ?>"
-                                                                            name="tname">
+                                                                            name="name">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="email"
@@ -145,25 +148,25 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                         <input type="text" class="form-control"
                                                                             id="email"
                                                                             value="<?= $row['email_m_user']; ?>"
-                                                                            name="temail">
+                                                                            name="email">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="password"
                                                                             class="form-label">Password</label>
                                                                         <input type="password" class="form-control"
-                                                                            id="password" name="tpassword">
+                                                                            id="password" name="password">
                                                                     </div>
                                                                     <div class="col-12">
                                                                         <label for="password" class="form-label">Confirm
                                                                             Password</label>
                                                                         <input type="password" class="form-control"
-                                                                            id="password" name="tConfirmPassword">
+                                                                            id="password" name="ConfirmPassword">
                                                                     </div>
                                                                     <div class="col-md-12">
                                                                         <label for="role"
                                                                             class="form-label">Role</label>
                                                                         <select class="form-select" id="role" required
-                                                                            name="trole">
+                                                                            name="role">
                                                                             <option><?= $row['role_m_user']; ?></option>
                                                                             <option>Kepala_lab</option>
                                                                             <option>Staff_lab</option>
@@ -182,24 +185,32 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     </div>
                                                 </div><!-- End Edit Modal-->
                                                 <!-- Disabled Backdrop Modal -->
-                                                <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                <button type="button"
+                                                    class="btn btn-danger btn-sm bi bi-trash-fill ms-1"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#delete-user<?=$row['id_m_user'];?>">
                                                 </button>
 
-                                                <div class="modal fade-sm" id="delete-user<?=$row['id_m_user'];?>"
+                                                <div class="modal fade-ms" id="delete-user<?=$row['id_m_user'];?>"
                                                     data-bs-backdrop="false">
-                                                    <div class="modal-dialog modal-sm">
+                                                    <div class="modal-dialog modal-ms">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">Delete Users?</h5>
+                                                                <h5 class="modal-title">Data Staff</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5 class="text-center">Apakah anda yakin akan menghapus
+                                                                    data ini?<br>
+                                                                    <span class="text-danger"><?=$row['name_m_user'];?>
+                                                                    </span>
+                                                                </h5>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                                 <a type="button"
-                                                                    href="../backend/prosses-staff.php?id_m_user=<?=$row['id_m_user'];?>"
-                                                                    class="btn btn-primary">Delete</a>
+                                                                    href="../backend/prosses-data-staff.php?id_m_user=<?=$row['id_m_user'];?>"
+                                                                    class="btn btn-danger">Delete</a>
                                                             </div>
                                                         </div>
                                                     </div>

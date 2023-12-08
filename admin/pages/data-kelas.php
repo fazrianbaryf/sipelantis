@@ -87,9 +87,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <td><?=$row['jumlah_siswa'];?></td>
 
                                         <td class="text-center d-flex justify-content-center">
-                                            <div>
+                                            <div class="d-flex">
                                                 <!-- Modal Edit Staff -->
-                                                <button type="button" class="btn btn-warning btn-sm bi bi-pencil-square"
+                                                <button type="button"
+                                                    class="btn btn-warning btn-sm bi bi-pencil-square ms-1"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#editmodal<?=$row['id_kelas'];?>"
                                                     data-user-id="<?=$row['id_kelas'];?>">
@@ -139,24 +140,33 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     </div>
                                                 </div><!-- End Edit Modal-->
                                                 <!-- Disabled Backdrop Modal -->
-                                                <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                <button type="button"
+                                                    class="btn btn-danger btn-sm bi bi-trash-fill ms-1"
                                                     data-bs-toggle="modal"
                                                     data-bs-target="#delete-user<?=$row['id_kelas'];?>">
                                                 </button>
 
-                                                <div class="modal fade-sm" id="delete-user<?=$row['id_kelas'];?>"
+                                                <div class="modal fade-md" id="delete-user<?=$row['id_kelas'];?>"
                                                     data-bs-backdrop="false">
-                                                    <div class="modal-dialog modal-sm">
+                                                    <div class="modal-dialog modal-md">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">Delete Users?</h5>
+                                                                <h5 class="modal-title">Data Kelas</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5 class="text-center">Apakah anda yakin akan
+                                                                    menghapus
+                                                                    data ini?<br>
+                                                                    <span class="text-danger"><?=$row['nama_kelas'];?>
+                                                                    </span>
+                                                                </h5>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
                                                                 <a type="button"
                                                                     href="../backend/prosses-data-kelas.php?id_kelas=<?=$row['id_kelas'];?>"
-                                                                    class="btn btn-primary">Delete</a>
+                                                                    class="btn btn-danger">Delete</a>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -91,7 +91,8 @@
                                             </div>
                                         </div>
                                         <div class="col-12">
-                                            <input class="btn btn-primary w-100" type="submit" name="login">
+                                            <button class="btn btn-primary w-100" type="submit"
+                                                name="login">Login</button>
                                         </div>
                                         <a class="bi bi-box-arrow-in-left text-end" href="../index">Homepage</a>
                                     </form>

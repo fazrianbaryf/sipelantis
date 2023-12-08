@@ -74,7 +74,6 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                         <option>Perempuan</option>
                                                     </select>
                                                 </div>
-
                                                 <button type="input" class="btn btn-primary" name="add-guru">
                                                     <i class="bi bi-person-add"></i>
                                                     Tambah Guru
@@ -121,9 +120,9 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                         <td><?=$row['pengampu_mapel'];?></td>
 
                                         <td class="text-center d-flex justify-content-center">
-                                            <div>
+                                            <div class="d-flex">
                                                 <!-- Modal Edit Guru -->
-                                                <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                                <button class="btn btn-warning btn-sm bi bi-pencil-square ms-1"
                                                     style="cursor: pointer;" data-bs-toggle="modal"
                                                     data-bs-target="#editmodal<?=$row['id_guru'];?>"
                                                     title="Edit Guru"></button>
@@ -183,10 +182,9 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                             Kelamin</label>
                                                                         <select class="form-select" id="jk" required
                                                                             name="jk">
-                                                                            <option selected disabled>
+                                                                            <option selected name="jk">
                                                                                 <?=$row['jenis_kelamin'];?>
                                                                             </option>
-                                                                            <option>Laki-Laki</option>
                                                                             <option>Perempuan</option>
                                                                         </select>
                                                                     </div>
@@ -201,22 +199,31 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     </div>
                                                 </div><!-- End Edit Modal-->
                                                 <!-- Disabled Backdrop Modal -->
-                                                <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                                <button class="btn btn-danger btn-sm bi bi-trash-fill ms-1"
                                                     style="cursor: pointer;" data-bs-toggle="modal"
                                                     data-bs-target="#delete-user<?=$row['id_guru'];?>"
                                                     title="Delete"></button>
 
-                                                <div class="modal fade-sm" id="delete-user<?=$row['id_guru'];?>"
+                                                <div class="modal fade-md" id="delete-user<?=$row['id_guru'];?>"
                                                     tabindex="-1" data-bs-backdrop="false">
-                                                    <div class="modal-dialog modal-sm">
+                                                    <div class="modal-dialog modal-md">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title">Delete Guru ?</h5>
+                                                                <h5 class="modal-title">Data Guru</h5>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <h5 class="text-center">Apakah anda yakin akan
+                                                                    menghapus
+                                                                    data ini?<br>
+                                                                    <span class="text-danger"><?=$row['nip_guru'];?> -
+                                                                        <?=$row['nama_guru'];?>
+                                                                    </span>
+                                                                </h5>
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary"
                                                                     data-bs-dismiss="modal">Close</button>
-                                                                <a type="button" class="btn btn-primary"
+                                                                <a type="button" class="btn btn-danger"
                                                                     href="../backend/prosses-data-guru.php?id_guru=<?=$row['id_guru'];?>">Delete</a>
                                                             </div>
                                                         </div>

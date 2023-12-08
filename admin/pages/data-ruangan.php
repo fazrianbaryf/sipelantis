@@ -85,9 +85,9 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <td><?=$row['nama_ruangan'];?></td>
                                     <td><?=$row['kapasitas_ruangan'];?></td>
                                     <td class="text-center d-flex justify-content-center">
-                                        <div>
+                                        <div class="d-flex">
                                             <!-- Modal Edit Guru -->
-                                            <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                            <button class="btn btn-warning btn-sm bi bi-pencil-square ms-1"
                                                 style="cursor: pointer;" data-bs-toggle="modal"
                                                 data-bs-target="#edit-ruangan<?=$row['id_ruangan'];?>"
                                                 title="Edit Guru"></button>
@@ -131,29 +131,36 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 </div>
                                             </div><!-- End Edit Modal-->
                                             <!-- Disabled Backdrop Modal -->
-                                            <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill"
+                                            <button type="button" class="btn btn-danger btn-sm bi bi-trash-fill ms-1"
                                                 data-bs-toggle="modal"
                                                 data-bs-target="#delete-user<?=$row['id_ruangan'];?>">
                                             </button>
 
-                                            <div class="modal fade-sm" id="delete-user<?=$row['id_ruangan'];?>"
+                                            <div class="modal fade-md" id="delete-user<?=$row['id_ruangan'];?>"
                                                 data-bs-backdrop="false">
-                                                <div class="modal-dialog modal-sm">
+                                                <div class="modal-dialog modal-md">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Delete Users?</h5>
+                                                            <h5 class="modal-title">Data Ruangan Lab</h5>
                                                         </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary"
-                                                                data-bs-dismiss="modal">Close</button>
-                                                            <a type="button"
-                                                                href="../backend/prosses-data-ruangan.php?id_ruangan=<?=$row['id_ruangan'];?>"
-                                                                class="btn btn-primary">Delete</a>
+                                                        <div class="modal-body">
+                                                            <h5 class="text-center">Apakah anda yakin akan
+                                                                menghapus
+                                                                data ini?<br>
+                                                                <span class="text-danger"><?=$row['nama_ruangan'];?>
+                                                                </span>
+                                                            </h5>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">Close</button>
+                                                                <a type="button"
+                                                                    href="../backend/prosses-data-ruangan.php?id_ruangan=<?=$row['id_ruangan'];?>"
+                                                                    class="btn btn-danger">Delete</a>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            </div><!-- End Disabled Backdrop Modal-->
-                                        </div>
+                                                </div><!-- End Disabled Backdrop Modal-->
+                                            </div>
                                     </td>
                                     <?php } ?>
                             </tbody>

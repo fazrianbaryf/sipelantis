@@ -40,11 +40,11 @@ if (isset($_POST['edit-users'])) {
     global $mysqli;
 
     $ID = mysqli_real_escape_string($mysqli, $_POST['id_m_user']);
-    $NAME = mysqli_real_escape_string($mysqli, $_POST['tname']);
-    $EMAIL = mysqli_real_escape_string($mysqli, $_POST['temail']);
-    $PASSWORD = mysqli_real_escape_string($mysqli, $_POST['tpassword']);
-    $CONFIRM_PW = mysqli_real_escape_string($mysqli, $_POST['tConfirmPassword']);
-    $ROLE = mysqli_real_escape_string($mysqli, $_POST['trole']);
+    $NAME = mysqli_real_escape_string($mysqli, $_POST['name']);
+    $EMAIL = mysqli_real_escape_string($mysqli, $_POST['email']);
+    $PASSWORD = mysqli_real_escape_string($mysqli, $_POST['password']);
+    $CONFIRM_PW = mysqli_real_escape_string($mysqli, $_POST['ConfirmPassword']);
+    $ROLE = mysqli_real_escape_string($mysqli, $_POST['role']);
 
     // Dapatkan alamat email saat ini dari database untuk pengguna yang diedit
     $currentEmailQuery = mysqli_query($mysqli, "SELECT email_m_user FROM tbl_m_user WHERE id_m_user = '$ID'");

@@ -89,7 +89,11 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                 <div class="col-12">
                     <div class="card text-center">
                         <div class="card-body">
-                            <h3 class="card-subtitle mb-2 mt-4 text-dark fw-bold">Selamat Datang</h3>
+                            <h3 class="card-subtitle mb-2 mt-4 text-dark fw-bold">Selamat Datang <span
+                                    class="text-primary">
+                                    <?php echo $_SESSION['name'];?>
+                                </span>
+                            </h3>
                             <h3 class="card-subtitle mb-2 text-dark fw-bold">Di Sistem Penjadwalan Otomatis</h3>
                             <h3 class="card-subtitle mb-2 text-dark fw-bold">SMK BINA KARYA 1</h3>
                         </div>

@@ -54,7 +54,16 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                     <label for="namaJurusan" class="form-label">Jurusan</label>
                                                     <input type="text" class="form-control" name="namaJurusan">
                                                 </div>
-
+                                                <div class="col-12">
+                                                    <label for="hari">Jam Mulai Kelas</label>
+                                                    <input type="time" class="form-control" name="jamMapelMulai"
+                                                        id="jamMapelMulai" value="07:00">
+                                                </div>
+                                                <div class="col-12">
+                                                    <label for="hari">Jam Selesai Kelas</label>
+                                                    <input type="time" class="form-control" name="jamMapelSelesai"
+                                                        id="jamMapelSelesai" value="07:00">
+                                                </div>
                                                 <div class="col-12">
                                                     <label for="namaPeriode" class="form-label">Periode</label>
                                                     <input type="text" class="form-control" name="namaPeriode">
@@ -102,6 +111,8 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <th scope="col">Kode Mapel</th>
                                     <th scope="col">Nama Mata Pelajaran</th>
                                     <th scope="col">Jurusan</th>
+                                    <th scope="col">Jam Mulai</th>
+                                    <th scope="col">Jam Selesai</th>
                                     <th scope="col">Periode</th>
                                     <th scope="col">Guru Pengampu</th>
                                     <th scope="col" class="text-center">Action</th>
@@ -121,12 +132,14 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <td><?=$row['kode_mapel'];?></td>
                                     <td><?=$row['nama_mapel'];?></td>
                                     <td><?=$row['jurusan'];?></td>
+                                    <td>00.00</td>
+                                    <td>00.00</td>
                                     <td><?=$row['periode'];?></td>
                                     <td><?=$row['guru_pengampu'];?></td>
                                     <td class="text-center d-flex justify-content-center">
-                                        <div>
+                                        <div class="d-flex">
                                             <!-- Modal Edit Guru -->
-                                            <button class="btn btn-warning btn-sm bi bi-pencil-square  "
+                                            <button class="btn btn-warning btn-sm bi bi-pencil-square ms-1"
                                                 style="cursor: pointer;" data-bs-toggle="modal"
                                                 data-bs-target="#edit-Mapel<?=$row['id_mapel'];?>"
                                                 title="Edit Guru"></button>
@@ -167,7 +180,18 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                         name="namaJurusan"
                                                                         value="<?=$row['jurusan'];?>">
                                                                 </div>
-
+                                                                <div class="col-12">
+                                                                    <label for="hari">Jam Mulai Kelas</label>
+                                                                    <input type="time" class="form-control"
+                                                                        name="jamMapelMulai" id="jamMapelMulai"
+                                                                        value="">
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <label for="hari">Jam Selesai Kelas</label>
+                                                                    <input type="time" class="form-control"
+                                                                        name="jamMapelSelesai" id="jamMapelSelesai"
+                                                                        value="">
+                                                                </div>
                                                                 <div class="col-12">
                                                                     <label for="namaPeriode"
                                                                         class="form-label">Periode</label>
@@ -193,7 +217,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                                 <button type="submit" class="btn btn-primary"
                                                                     name="edit-mapel">
                                                                     <i class="bi bi-building-fill-add"></i>
-                                                                    Tambah Mata Pelajaran
+                                                                    Edit Mata Pelajaran
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -201,24 +225,33 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                                 </div>
                                             </div><!-- End Edit Modal-->
                                             <!-- Disabled Backdrop Modal -->
-                                            <button class="btn btn-danger btn-sm bi bi-trash-fill"
+                                            <button class="btn btn-danger btn-sm bi bi-trash-fill ms-1"
                                                 style="cursor: pointer;" data-bs-toggle="modal"
                                                 data-bs-target="#delete-mapel<?=$row['id_mapel'];?>"
                                                 title="Delete"></button>
 
-                                            <div class="modal fade-sm" id="delete-mapel<?=$row['id_mapel'];?>"
+                                            <div class="modal fade-md" id="delete-mapel<?=$row['id_mapel'];?>"
                                                 tabindex="-1" data-bs-backdrop="false">
-                                                <div class="modal-dialog modal-sm">
+                                                <div class="modal-dialog modal-md">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title">Delete Mata Pelajaran ?</h5>
+                                                            <h5 class="modal-title">Data Mata Pelajaran</h5>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5 class="text-center">Apakah anda yakin akan
+                                                                menghapus
+                                                                data ini?<br>
+                                                                <span class="text-danger"><?=$row['kode_mapel'];?> -
+                                                                    <?=$row['nama_mapel'];?>
+                                                                </span>
+                                                            </h5>
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary"
                                                                 data-bs-dismiss="modal">Close</button>
                                                             <a type="button"
                                                                 href="../backend/prosses-data-mapel.php?id_mapel=<?=$row['id_mapel'];?>"
-                                                                class="btn btn-primary">Delete</a>
+                                                                class="btn btn-danger">Delete</a>
                                                         </div>
                                                     </div>
                                                 </div>
