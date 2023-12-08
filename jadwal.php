@@ -1,8 +1,7 @@
 <?php
-
 $ds = DIRECTORY_SEPARATOR;
-$base_dir = realpath(dirname(__FILE__) . $ds . '..') . $ds;
-require_once("{$base_dir}pages{$ds}core{$ds}header.php");
+$base_dir = realpath(dirname(__FILE__) . $ds . '') . $ds;
+require_once("{$base_dir}core{$ds}header.php");
 
 ?>
 
@@ -84,6 +83,6 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
 </main>
 <?php
 
-require_once("{$base_dir}pages{$ds}core{$ds}footer.php");
+require_once("{$base_dir}core{$ds}footer.php");
 
 ?>
