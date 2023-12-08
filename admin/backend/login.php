@@ -20,16 +20,16 @@ if(isset($_POST['login'])) {
 
             if ($_SESSION['role'] == 'super_admin') {
                 // Hanya super admin yang bisa mengakses sidebar "Data Users"
-                header('Location:../pages/dashboard.php');
+                header('Location:../pages/dashboard');
             } else {
                 // Redirect ke dashboard biasa untuk peran lain
-                header('Location:../pages/dashboard.php');
+                header('Location:../pages/dashboard');
             }
 
         } else {
             echo "<script>
             alert('Password Salah');
-            window.location.href = '../login.php';
+            window.location.href = '../login';
             </script>";
             die;
         }
@@ -37,7 +37,7 @@ if(isset($_POST['login'])) {
     } else {
         echo "<script>
         alert('Username Dan Password Salah');
-        window.location.href = '../login.php';
+        window.location.href = '../login';
         </script>";
         die;
     }

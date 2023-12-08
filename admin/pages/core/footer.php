@@ -27,25 +27,6 @@
 
   <!-- Template Main JS File -->
   <script src="../assets/js/main.js"></script>
-  <!-- Tambahkan script berikut di bagian akhir sebelum tag </body> -->
-  <script>
-// Ambil semua elemen dengan kelas 'nav-link' di dalam sidebar
-const sidebarLinks = document.querySelectorAll('.nav-link');
-
-// Loop melalui setiap elemen dan tambahkan event listener untuk menanggapi klik
-sidebarLinks.forEach(link => {
-    link.addEventListener('click', function() {
-        // Hapus kelas 'active' dari semua elemen dengan kelas 'nav-link'
-        sidebarLinks.forEach(innerLink => {
-            innerLink.classList.remove('active');
-        });
-        // Tambahkan kelas 'active' ke elemen yang diklik
-        this.classList.add('active');
-    });
-});
-  </script>
-
-
   </body>
 
   </html>

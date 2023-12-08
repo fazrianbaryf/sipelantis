@@ -93,7 +93,7 @@
                                         <div class="col-12">
                                             <input class="btn btn-primary w-100" type="submit" name="login">
                                         </div>
-                                        <a class="bi bi-box-arrow-in-left text-end" href="../index.php">Back</a>
+                                        <a class="bi bi-box-arrow-in-left text-end" href="../index">Homepage</a>
                                     </form>
                                 </div>
                             </div>
