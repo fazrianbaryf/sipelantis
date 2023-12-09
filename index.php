@@ -51,7 +51,7 @@ require_once("{$base_dir}core{$ds}header.php");
                 </div>
                 <div class="container d-flex flex-column align-items-center justify-content-center text-center"
                     style="max-width: 1350px; margin: 0 auto; margin-bottom: 20px;">
-                    <h3 class="mb-4">SIPELAN'TIS</h3>
+                    <h3 class="mb-4">SIPELAN'TISSSSSS</h3>
                     <p>Selamat datang di Sistem Penjadwalan Otomatis SMK Binakarya 1.</p>
 
                     <p style="text-align: justify; text-indent: 40px;">
