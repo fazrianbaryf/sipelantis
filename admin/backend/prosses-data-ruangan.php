@@ -14,7 +14,8 @@ if(isset($_POST['add-ruangan'])){
     $ResultQueryAddRuangan = mysqli_query($mysqli, $QueryAddRuangan);
 
     if ($ResultQueryAddRuangan) {
-        echo "<script>alert('Data Berhasil Di Tambahkan'); window.location.href = '../pages/data-ruangan.php';</script>";
+        header("Location: ../pages/data-ruangan.php?success=true");
+        exit();
     } else {
         echo "<script>alert('Gagal Menambahkan Data'); window.location.href = '../pages/data-ruangan.php';</script> " . mysqli_error($mysqli);
     }
@@ -25,19 +26,21 @@ if(isset($_POST['edit-ruangan'])){
 
     $ID = mysqli_real_escape_string($mysqli, $_POST['id_ruangan']);
     $NAMA_RUANGAN = mysqli_real_escape_string($mysqli, $_POST['namaRuangan']);
-    $K_LAB = mysqli_real_escape_string($mysqli, $_POST['kapasitasLab']);
+    $K_LAB = mysqli_real_escape_string($mysqli, $_POST['kapasitasRuangan']);
 
     $QueryUpdateRuangan = "UPDATE tbl_m_ruangan SET 
                         nama_ruangan ='$NAMA_RUANGAN', 
                         kapasitas_ruangan ='$K_LAB', 
-                        updated_by_tmr=NOW()
+                        updated_by_tmr = '2',
+                        updated_date_tmr = NOW()
                         WHERE id_ruangan='$ID'";
 
 
     $ResultUpdateRuangan = mysqli_query($mysqli, $QueryUpdateRuangan);
 
     if ($ResultUpdateRuangan) {
-        echo "<script>alert('Data Berhasil Di edit'); window.location.href = '../pages/data-ruangan.php';</script>";
+        header("Location: ../pages/data-ruangan.php?edited=true");
+        exit();
     } else {
         echo "<script>alert('Data Berhasil DI Hapus'); window.location.href = '../pages/data-ruangan.php';</script>" . mysqli_error($mysqli);
     }
@@ -50,7 +53,8 @@ if(isset($_GET['id_ruangan'])){
     global $mysqli;
     
     mysqli_query($mysqli, "delete FROM tbl_m_ruangan WHERE id_ruangan='$_GET[id_ruangan]'");
-    echo "<script>alert('Data Sudah di hapus'); window.location.href = '../pages/data-ruangan.php';</script>";
+    header("Location: ../pages/data-ruangan.php?deleted=true");
+    exit();
 }
 
 ?>
