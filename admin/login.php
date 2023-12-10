@@ -59,11 +59,61 @@
                             <div class="card mb-3">
 
                                 <div class="card-body">
-
                                     <div class="pt-4 pb-2">
                                         <h5 class="card-title text-center pb-0 fs-4">Login to SIPELAN'TIS</h5>
                                     </div>
+                                    <!-- Alert Untuk Menambahkan -->
+                                    <?php
+                                    $isError = isset($_GET['error']) && $_GET['error'] == '1';
+                                    $isInvalidCredentials = isset($_GET['error']) && $_GET['error'] === 'invalid_credentials';
+                                    ?>
+                                    <?php if ($isError): ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="bi bi-exclamation-triangle me-1"></i>
+                                        Password Salah!
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
 
+                                        <script>
+                                        // Menghapus parameter error dari URL setelah alert ditutup
+                                        const url = new URL(window.location.href);
+                                        const params = new URLSearchParams(url.search);
+                                        params.delete('error');
+                                        url.search = params.toString();
+                                        window.history.replaceState({}, document.title, url.href);
+
+                                        // Menghilangkan alert setelah 2000 milidetik (2 detik)
+                                        setTimeout(function() {
+                                            document.querySelector('.alert-danger').style.display = 'none';
+                                        }, 10000);
+                                        </script>
+                                    </div>
+                                    <?php endif; ?>
+                                    <!-- Alert Email dan password salah -->
+                                    <?php if ($isInvalidCredentials): ?>
+                                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <i class="bi bi-exclamation-triangle me-1"></i>
+                                        Email atau Password Salah!
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                            aria-label="Close"></button>
+
+                                        <script>
+                                        // Menghapus parameter error dari URL setelah alert ditutup
+                                        const url = new URL(window.location.href);
+                                        const params = new URLSearchParams(url.search);
+                                        params.delete('error');
+                                        url.search = params.toString();
+                                        window.history.replaceState({}, document.title, url.href);
+
+                                        // Menghilangkan alert setelah 2000 milidetik (2 detik)
+                                        setTimeout(function() {
+                                            document.querySelector('.alert-danger').style.display = 'none';
+                                        }, 10000);
+                                        </script>
+                                    </div>
+                                    <?php endif; ?>
+
+                                    <!-- End Alert -->
                                     <form action="backend/login.php" method="post" class="row g-3 needs-validation"
                                         novalidate>
 

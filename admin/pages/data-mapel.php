@@ -4,6 +4,14 @@ $ds = DIRECTORY_SEPARATOR;
 $base_dir = realpath(dirname(__FILE__) . $ds . '..') . $ds;
 require_once("{$base_dir}pages{$ds}core{$ds}header.php");
 
+session_start();
+
+$allowed_roles = ['kepala_lab', 'staff_lab'];
+
+if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
+    echo '<script>window.location.href="dashboard.php";</script>';
+    exit();
+}
 ?>
 <main id="main" class="main">
 

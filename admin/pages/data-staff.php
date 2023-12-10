@@ -4,6 +4,15 @@ $ds = DIRECTORY_SEPARATOR;
 $base_dir = realpath(dirname(__FILE__) . $ds . '..') . $ds;
 require_once("{$base_dir}pages{$ds}core{$ds}header.php");
 
+session_start();
+// Roles yang diizinkan mengakses data-staff.php
+$allowed_roles = ['super_admin'];
+
+// Jika user tidak memiliki session atau rolenya tidak sesuai
+if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
+    echo '<script>window.location.href="dashboard.php";</script>';
+    exit();
+}
 ?>
 <main id="main" class="main">
 

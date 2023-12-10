@@ -27,18 +27,12 @@ if(isset($_POST['login'])) {
             }
 
         } else {
-            echo "<script>
-            alert('Password Salah');
-            window.location.href = '../login';
-            </script>";
+            header('Location:../login?error=1');
             die;
         }
 
     } else {
-        echo "<script>
-        alert('Username Dan Password Salah');
-        window.location.href = '../login';
-        </script>";
+        header('Location:../login?error=invalid_credentials');
         die;
     }
 }
