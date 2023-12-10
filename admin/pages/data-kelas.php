@@ -61,6 +61,73 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                 </div>
                             </div><!-- End Vertically centered Modal-->
                         </div>
+                        <!-- Alert start -->
+                        <!-- Alert Untuk Menambahkan -->
+                        <?php
+                        $isOperationSuccess = isset($_GET['success']) && $_GET['success'] === 'true';
+                        $isDataEdited = isset($_GET['edited']) && $_GET['edited'] === 'true';
+                        $isDataDeleted = isset($_GET['deleted']) && $_GET['deleted'] === 'true';
+                        ?>
+                        <?php if ($isOperationSuccess): ?>
+                        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                            <i class="bi bi-plus-circle me-1"></i>
+                            Data Berhasil Ditambahkan!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                            <script>
+                            const url = new URL(window.location.href);
+                            url.searchParams.delete('success');
+                            window.history.replaceState({}, document.title, url.href);
+
+                            setTimeout(function() {
+                                document.querySelector('.alert-primary').style.display = 'none';
+                            }, 2000);
+                            </script>
+
+                        </div>
+                        <?php endif; ?>
+                        <!-- End Alert Untuk Menambahkan -->
+                        <!-- Alert Untuk Edit -->
+                        <?php if ($isDataEdited): ?>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <i class="bi bi-pencil-square me-1"></i>
+                            Data Berhasil Diubah!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                            <script>
+                            const url = new URL(window.location.href);
+                            url.searchParams.delete('edited');
+                            window.history.replaceState({}, document.title, url.href);
+
+                            setTimeout(function() {
+                                document.querySelector('.alert-warning').style.display = 'none';
+                            }, 2000);
+                            </script>
+
+                        </div>
+                        <?php endif; ?>
+                        <!-- End Alert Untuk Edit -->
+                        <!-- Alert Untuk Delete -->
+                        <?php if ($isDataDeleted): ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="bi bi-trash-fill me-1"></i>
+                            Data Berhasil Dihapus!
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+
+                            <script>
+                            const url = new URL(window.location.href);
+                            url.searchParams.delete('deleted');
+                            window.history.replaceState({}, document.title, url.href);
+
+                            setTimeout(function() {
+                                document.querySelector('.alert-danger').style.display = 'none';
+                            }, 2000);
+                            </script>
+
+                        </div>
+                        <?php endif; ?>
+                        <!-- End Alert Untuk Delete -->
+                        <!-- ALert end -->
                         <!-- Bordered Table -->
                         <div class="table-responsive">
                             <table class="table datatable">

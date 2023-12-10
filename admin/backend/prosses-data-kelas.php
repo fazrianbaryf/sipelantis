@@ -14,7 +14,8 @@ if(isset($_POST['add-kelas'])){
     $ResultQueryAddKelas = mysqli_query($mysqli, $QueryAddKelas);
 
     if ($ResultQueryAddKelas) {
-        echo "Tambah user berhasil.";
+        header("Location: ../pages/data-kelas.php?success=true");
+        exit();
     } else {
         echo "Gagal menambah user: " . mysqli_error($mysqli);
     }
@@ -37,7 +38,8 @@ if(isset($_POST['edit-kelas'])){
     $ResultUpdateKelas = mysqli_query($mysqli, $QueryUpdateKelas);
 
     if ($ResultUpdateKelas) {
-        echo "Edit pengguna berhasil.";
+        header("Location: ../pages/data-kelas.php?edited=true");
+        exit();
     } else {
         echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
     }
@@ -50,7 +52,8 @@ if(isset($_GET['id_kelas'])){
     global $mysqli;
     
     mysqli_query($mysqli, "delete FROM tbl_m_kelas WHERE id_kelas='$_GET[id_kelas]'");
-    echo "Data Sudah di hapus";
+    header("Location: ../pages/data-kelas.php?deleted=true");
+        exit();
 }
 
 ?>

@@ -28,7 +28,8 @@ if(isset($_POST['add-users'])){
     $ResultQueryAddUser = mysqli_query($mysqli, $QueryAddUser);
 
     if ($ResultQueryAddUser) {
-        echo "Tambah user berhasil.";
+        header("Location: ../pages/data-staff.php?success=true");
+        exit();
     } else {
         echo "Gagal menambah user: " . mysqli_error($mysqli);
     }
@@ -89,7 +90,8 @@ if (isset($_POST['edit-users'])) {
     $resultUpdateUser = mysqli_query($mysqli, $queryUpdateUser);
 
     if ($resultUpdateUser) {
-        echo "Edit pengguna berhasil.";
+        header("Location: ../pages/data-staff.php?success=edited");
+        exit();
     } else {
         echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
     }
@@ -102,7 +104,8 @@ if(isset($_GET['id_m_user'])){
     global $mysqli;
     
     mysqli_query($mysqli, "delete FROM tbl_m_user WHERE id_m_user='$_GET[id_m_user]'");
-    echo "Data Sudah di hapus";
+    header("Location: ../pages/data-staff.php?success=deleted");
+        exit();
 }
 
 ?>

@@ -18,7 +18,8 @@ if(isset($_POST['add-mapel'])){
     $ResultQueryAddMapel = mysqli_query($mysqli, $QueryAddMapel);
 
     if ($ResultQueryAddMapel) {
-        echo "Tambah user berhasil.";
+        header("Location: ../pages/data-mapel?success=true");
+        exit();
     } else {
         echo "Gagal menambah user: " . mysqli_error($mysqli);
     }
@@ -50,7 +51,8 @@ if(isset($_POST['edit-mapel'])){
     $ResultUpdateMapel = mysqli_query($mysqli, $QueryUpdateMapel);
 
     if ($ResultUpdateMapel) {
-        echo "Edit pengguna berhasil.";
+        header("Location: ../pages/data-mapel?success=edited");
+        exit();
     } else {
         echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
     }
@@ -63,7 +65,8 @@ if(isset($_GET['id_mapel'])){
     global $mysqli;
     
     mysqli_query($mysqli, "delete FROM tbl_m_mapel WHERE id_mapel='$_GET[id_mapel]'");
-    echo "Data Sudah di hapus";
+    header("Location: ../pages/data-mapel?success=deleted");
+        exit();
 }
 
 ?>

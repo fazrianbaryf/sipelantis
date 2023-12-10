@@ -19,7 +19,8 @@ if(isset($_POST['add-guru'])){
     $ResultQueryAddGuru = mysqli_query($mysqli, $QueryAddGuru);
 
     if ($ResultQueryAddGuru) {
-        echo "Tambah user berhasil.";
+        header("Location: ../pages/data-guru.php?success=true");
+        exit();
     } else {
         echo "Gagal menambah user: " . mysqli_error($mysqli);
     }
@@ -51,7 +52,8 @@ if (isset($_POST['edit-guru'])) {
     $resultUpdateGuru = mysqli_query($mysqli, $queryUpdateGuru);
 
     if ($resultUpdateGuru) {
-        echo "Edit pengguna berhasil.";
+        header("Location: ../pages/data-guru.php?edited=true");
+        exit();
     } else {
         echo "Gagal mengedit pengguna: " . mysqli_error($mysqli);
     }
@@ -63,6 +65,7 @@ if(isset($_GET['id_guru'])){
     global $mysqli;
     
     mysqli_query($mysqli, "delete FROM tbl_m_guru WHERE id_guru='$_GET[id_guru]'");
-    echo "Data Sudah di hapus";
+    header("Location: ../pages/data-guru.php?deleted=true");
+        exit();
 }
 ?>
