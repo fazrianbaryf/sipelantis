@@ -51,32 +51,35 @@ require_once("{$base_dir}core{$ds}header.php");
                 </div>
                 <div class="container d-flex flex-column align-items-center justify-content-center text-center"
                     style="max-width: 1350px; margin: 0 auto; margin-bottom: 20px;">
-                    <h3 class="mb-4">SIPELAN'TIS</h3>
-                    <p>Selamat datang di Sistem Penjadwalan Otomatis SMK Binakarya 1.</p>
+                    <h3 class="mb-4">SIPELAN'TISssssssssss/h3>
+                        <p>Selamat datang di Sistem Penjadwalan Otomatis SMK Binakarya 1.</p>
 
-                    <p style="text-align: justify; text-indent: 40px;">
-                        SMK Bina Karya 1 menyediakan program kejuruan di berbagai bidang, seperti teknik, industri,
-                        bisnis, dan kejuruan lainnya sesuai dengan kebutuhan industri dan pasar kerja setempat. Dengan
-                        fasilitas modern dan pendekatan pembelajaran yang terkini, sekolah ini berkomitmen untuk
-                        menciptakan lingkungan belajar yang kondusif bagi perkembangan siswa secara akademis dan
-                        praktis. Kurikulum yang disusun secara hati-hati mencakup kombinasi mata pelajaran teoritis dan
-                        pelatihan praktis, memastikan
-                        bahwa setiap siswa tidak hanya memperoleh pengetahuan akademis yang solid, tetapi juga
-                        keterampilan
-                        praktis yang dibutuhkan dalam industri. Fasilitas modern seperti laboratorium teknologi,
-                        workshop, dan perpustakaan yang lengkap mendukung proses pembelajaran yang interaktif dan
-                        inovatif.
+                        <p style="text-align: justify; text-indent: 40px;">
+                            SMK Bina Karya 1 menyediakan program kejuruan di berbagai bidang, seperti teknik, industri,
+                            bisnis, dan kejuruan lainnya sesuai dengan kebutuhan industri dan pasar kerja setempat.
+                            Dengan
+                            fasilitas modern dan pendekatan pembelajaran yang terkini, sekolah ini berkomitmen untuk
+                            menciptakan lingkungan belajar yang kondusif bagi perkembangan siswa secara akademis dan
+                            praktis. Kurikulum yang disusun secara hati-hati mencakup kombinasi mata pelajaran teoritis
+                            dan
+                            pelatihan praktis, memastikan
+                            bahwa setiap siswa tidak hanya memperoleh pengetahuan akademis yang solid, tetapi juga
+                            keterampilan
+                            praktis yang dibutuhkan dalam industri. Fasilitas modern seperti laboratorium teknologi,
+                            workshop, dan perpustakaan yang lengkap mendukung proses pembelajaran yang interaktif dan
+                            inovatif.
 
-                    </p>
+                        </p>
 
-                    <p style="text-align: justify; text-indent: 40px;">
-                        Fasilitas pendidikan SMK Bina Karya 1 melibatkan ruang kelas yang nyaman, laboratorium yang
-                        dilengkapi dengan peralatan terkini, perpustakaan untuk mendukung riset dan pengembangan
-                        pengetahuan, serta fasilitas olahraga untuk mendukung aspek kesehatan dan kebugaran siswa.
-                        Di samping itu, SMK Bina Karya 1 juga memberikan penekanan pada pengembangan
-                        keterampilan soft skills, kepemimpinan, dan kolaborasi antar siswa. Melalui program
-                        ekstrakurikuler dan kegiatan sosial, sekolah ini bertujuan untuk membentuk karakter siswa yang
-                        tangguh, kreatif, dan siap menghadapi tantangan dunia kerja modern.
+                        <p style="text-align: justify; text-indent: 40px;">
+                            Fasilitas pendidikan SMK Bina Karya 1 melibatkan ruang kelas yang nyaman, laboratorium yang
+                            dilengkapi dengan peralatan terkini, perpustakaan untuk mendukung riset dan pengembangan
+                            pengetahuan, serta fasilitas olahraga untuk mendukung aspek kesehatan dan kebugaran siswa.
+                            Di samping itu, SMK Bina Karya 1 juga memberikan penekanan pada pengembangan
+                            keterampilan soft skills, kepemimpinan, dan kolaborasi antar siswa. Melalui program
+                            ekstrakurikuler dan kegiatan sosial, sekolah ini bertujuan untuk membentuk karakter siswa
+                            yang
+                            tangguh, kreatif, dan siap menghadapi tantangan dunia kerja modern.
 
 
                 </div>
