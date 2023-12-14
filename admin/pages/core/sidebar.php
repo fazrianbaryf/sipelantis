@@ -2,6 +2,7 @@
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
+
         <li class="nav-heading">Main Menu</li>
         <li class="nav-item">
             <a class="nav-link collapsed" href="dashboard.php">
@@ -50,6 +51,12 @@
             <a class="nav-link collapsed" href="data-kelas.php">
                 <i class="bi bi-building"></i>
                 <span>Kelas</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="data-periode.php">
+                <i class="bi bi-list-check"></i>
+                <span>Periode</span>
             </a>
         </li>
         <?php endif; ?>

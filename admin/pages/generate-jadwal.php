@@ -31,8 +31,27 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                         <h5 class="card-title">Generate Jadwal</h5>
                         <form class="row g-3">
                             <div class="col-12">
-                                <label for="inputNanme4" class="form-label">Periode</label>
-                                <input type="text" class="form-control">
+                                <?php
+                                                require '../config/db.php';
+
+                                                $periodeQuery = mysqli_query($mysqli, "SELECT * FROM tbl_periode");
+                                                $periodeOptions = array();
+
+                                                    while ($periodeRow = mysqli_fetch_assoc($periodeQuery)) {
+                                                        $periodeOptions[] = $periodeRow['nama_periode'];
+                                                        }
+
+                                                    ?>
+                                <label for="generate" class="form-label">Generate</label>
+                                <select class="form-select" id="generate" required name="generate">
+                                    <option value="" disabled selected>Pilih Periode...
+                                    </option>
+                                    <?php foreach ($periodeOptions as $periodeOption) { ?>
+                                    <option value="<?= $periodeOption; ?>">
+                                        <?= $periodeOption; ?>
+                                    </option>
+                                    <?php } ?>
+                                </select>
                             </div>
                             <a href="generate-jadwal.php" class="btn btn-primary">Generate Jadwal</a>
                         </form>

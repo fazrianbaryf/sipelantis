@@ -13,7 +13,9 @@ if(isset($_POST['add-mapel'])){
     $GURU_PENGAMPU = mysqli_real_escape_string($mysqli, $_POST['guruPengampu']);
 
     $QueryAddMapel = "INSERT INTO tbl_m_mapel (kode_mapel, nama_mapel, jurusan, periode, guru_pengampu, created_by_tmm, created_date_tmm) 
-                      VALUES ('$KODE_MAPEL', '$NAMA_MAPEL', '$JURUSAN', '$PERIODE', '$GURU_PENGAMPU', 1, NOW())";
+                    VALUES ('$KODE_MAPEL', '$NAMA_MAPEL', '$JURUSAN', '$PERIODE', 
+                    (SELECT id_guru FROM tbl_m_guru WHERE nama_guru = '$GURU_PENGAMPU'), 1, NOW())";
+
 
     $ResultQueryAddMapel = mysqli_query($mysqli, $QueryAddMapel);
 

@@ -51,7 +51,20 @@ if (!in_array($_SESSION['role'], $allowed_roles)) {
 </head>
 
 <body>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var currentPage = window.location.pathname;
+        var navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
 
+        navLinks.forEach(function(link) {
+            var linkHref = link.getAttribute('href');
+
+            if (currentPage === linkHref) {
+                link.classList.add('collapsed');
+            }
+        });
+    });
+    </script>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center justify-content-between">
         <div class="d-flex align-items-center">
