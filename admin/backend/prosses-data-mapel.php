@@ -9,11 +9,13 @@ if(isset($_POST['add-mapel'])){
     $KODE_MAPEL = mysqli_real_escape_string($mysqli, $_POST['kodeMapel']);
     $NAMA_MAPEL = mysqli_real_escape_string($mysqli, $_POST['namaMapel']);
     $JURUSAN = mysqli_real_escape_string($mysqli, $_POST['namaJurusan']);
-    $PERIODE = mysqli_real_escape_string($mysqli, $_POST['namaPeriode']);
+    $JM_MULAI = mysqli_real_escape_string($mysqli, $_POST['jamMapelMulai']);
+    $JM_SELESAI = mysqli_real_escape_string($mysqli, $_POST['jamMapelSelesai']);
+    // $PERIODE = mysqli_real_escape_string($mysqli, $_POST['namaPeriode']);
     $GURU_PENGAMPU = mysqli_real_escape_string($mysqli, $_POST['guruPengampu']);
 
-    $QueryAddMapel = "INSERT INTO tbl_m_mapel (kode_mapel, nama_mapel, jurusan, periode, guru_pengampu, created_by_tmm, created_date_tmm) 
-                    VALUES ('$KODE_MAPEL', '$NAMA_MAPEL', '$JURUSAN', '$PERIODE', 
+    $QueryAddMapel = "INSERT INTO tbl_m_mapel (kode_mapel, nama_mapel, jurusan, jam_mulai, jam_selesai, guru_pengampu, created_by_tmm, created_date_tmm) 
+                    VALUES ('$KODE_MAPEL', '$NAMA_MAPEL', '$JURUSAN', '$JM_MULAI', '$JM_SELESAI',
                     (SELECT id_guru FROM tbl_m_guru WHERE nama_guru = '$GURU_PENGAMPU'), 1, NOW())";
 
 
@@ -34,15 +36,18 @@ if(isset($_POST['edit-mapel'])){
     $KODE_MAPEL = mysqli_real_escape_string($mysqli, $_POST['kodeMapel']);
     $NAMA_MAPEL = mysqli_real_escape_string($mysqli, $_POST['namaMapel']);
     $JURUSAN = mysqli_real_escape_string($mysqli, $_POST['namaJurusan']);
-    $PERIODE = mysqli_real_escape_string($mysqli, $_POST['namaPeriode']);
+    // $PERIODE = mysqli_real_escape_string($mysqli, $_POST['namaPeriode']);
+    $JM_MULAI = mysqli_real_escape_string($mysqli, $_POST['jamMapelMulai']);
+    $JM_SELESAI = mysqli_real_escape_string($mysqli, $_POST['jamMapelSelesai']);
     $GURU_PENGAMPU = mysqli_real_escape_string($mysqli, $_POST['guruPengampu']);
 
-    $QueryUpdateRuangan = $QueryUpdateMapel = "UPDATE tbl_m_mapel SET 
+    $QueryUpdateMapel = "UPDATE tbl_m_mapel SET 
                             kode_mapel = '$KODE_MAPEL',
                             nama_mapel = '$NAMA_MAPEL',
                             jurusan = '$JURUSAN',
-                            periode = '$PERIODE',
-                            guru_pengampu = '$GURU_PENGAMPU',
+                            jam_mulai = '$JM_MULAI',
+                            jam_selesai = '$JM_SELESAI',
+                            guru_pengampu = (SELECT id_guru FROM tbl_m_guru WHERE nama_guru = '$GURU_PENGAMPU'),
                             updated_by_tmm = '2',
                             updated_date_tmm = NOW()
                             WHERE id_mapel = '$ID'";

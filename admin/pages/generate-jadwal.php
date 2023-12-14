@@ -1,5 +1,4 @@
 <?php
-
 $ds = DIRECTORY_SEPARATOR;
 $base_dir = realpath(dirname(__FILE__) . $ds . '..') . $ds;
 require_once("{$base_dir}pages{$ds}core{$ds}header.php");
@@ -12,7 +11,14 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
     echo '<script>window.location.href="dashboard.php";</script>';
     exit();
 }
+
+// Jika formulir disubmit
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Proses generate jadwal otomatis
+    require_once("../backend/generate.php");
+}
 ?>
+
 <main id="main" class="main">
     <div class="pagetitle">
         <h1>Dashboard</h1>
@@ -29,31 +35,27 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Generate Jadwal</h5>
-                        <form class="row g-3">
+                        <form class="row g-3" action="../backend/generate.php" method="post">
+                            <?php
+                                require '../config/db.php';
+
+                                $periodeQuery = mysqli_query($mysqli, "SELECT * FROM tbl_periode");
+                                $periodeOptions = array();
+
+                                while ($periodeRow = mysqli_fetch_assoc($periodeQuery)) {
+                                    $periodeOptions[] = $periodeRow['nama_periode'];
+                                }
+                            ?>
                             <div class="col-12">
-                                <?php
-                                                require '../config/db.php';
-
-                                                $periodeQuery = mysqli_query($mysqli, "SELECT * FROM tbl_periode");
-                                                $periodeOptions = array();
-
-                                                    while ($periodeRow = mysqli_fetch_assoc($periodeQuery)) {
-                                                        $periodeOptions[] = $periodeRow['nama_periode'];
-                                                        }
-
-                                                    ?>
                                 <label for="generate" class="form-label">Generate</label>
                                 <select class="form-select" id="generate" required name="generate">
-                                    <option value="" disabled selected>Pilih Periode...
-                                    </option>
+                                    <option value="" disabled selected>Pilih Periode...</option>
                                     <?php foreach ($periodeOptions as $periodeOption) { ?>
-                                    <option value="<?= $periodeOption; ?>">
-                                        <?= $periodeOption; ?>
-                                    </option>
+                                    <option value="<?= $periodeOption; ?>"><?= $periodeOption; ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
-                            <a href="generate-jadwal.php" class="btn btn-primary">Generate Jadwal</a>
+                            <button type="submit" class="btn btn-primary">Generate Jadwal</button>
                         </form>
                     </div>
                 </div>
@@ -64,11 +66,8 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
     </div><!-- End Left side columns -->
     </div>
     </section>
-
 </main><!-- End #main -->
 
 <?php
-
 require_once("{$base_dir}pages{$ds}core{$ds}footer.php");
-
 ?>

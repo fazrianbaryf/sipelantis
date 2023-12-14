@@ -62,7 +62,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                     <label for="namaJurusan" class="form-label">Jurusan</label>
                                                     <input type="text" class="form-control" name="namaJurusan">
                                                 </div>
-                                                <!-- <div class="col-12">
+                                                <div class="col-12">
                                                     <label for="hari">Jam Mulai Kelas</label>
                                                     <input type="time" class="form-control" name="jamMapelMulai"
                                                         id="jamMapelMulai" value="07:00">
@@ -71,11 +71,11 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                     <label for="hari">Jam Selesai Kelas</label>
                                                     <input type="time" class="form-control" name="jamMapelSelesai"
                                                         id="jamMapelSelesai" value="07:00">
-                                                </div> -->
-                                                <div class="col-12">
+                                                </div>
+                                                <!-- <div class="col-12">
                                                     <label for="namaPeriode" class="form-label">Periode</label>
                                                     <input type="text" class="form-control" name="namaPeriode">
-                                                </div>
+                                                </div> -->
                                                 <div class="col-md-12">
                                                     <?php
                                                 require '../config/db.php';
@@ -186,7 +186,9 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                     <th scope="col">Kode Mapel</th>
                                     <th scope="col">Nama Mata Pelajaran</th>
                                     <th scope="col">Jurusan</th>
-                                    <th scope="col">Periode</th>
+                                    <th scope="col">Jam Mulai</th>
+                                    <th scope="col">Jam Selesai</th>
+                                    <!-- <th scope="col">Periode</th> -->
                                     <th scope="col">Guru Pengampu</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
@@ -205,9 +207,9 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                     <td><?=$row['kode_mapel'];?></td>
                                     <td><?=$row['nama_mapel'];?></td>
                                     <td><?=$row['jurusan'];?></td>
-                                    <!-- <td>00.00</td>
-                                    <td>00.00</td> -->
-                                    <td><?=$row['periode'];?></td>
+                                    <td><?=$row['jam_mulai'];?></td>
+                                    <td><?=$row['jam_selesai'];?></td>
+                                    <!-- <td><?=$row['periode'];?></td> -->
                                     <td><?=$row['nama_guru_pengampu'];?></td>
                                     <td class="text-center d-flex justify-content-center">
                                         <div class="d-flex">
@@ -253,25 +255,25 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                                         name="namaJurusan"
                                                                         value="<?=$row['jurusan'];?>">
                                                                 </div>
-                                                                <!-- <div class="col-12">
+                                                                <div class="col-12">
                                                                     <label for="hari">Jam Mulai Kelas</label>
                                                                     <input type="time" class="form-control"
                                                                         name="jamMapelMulai" id="jamMapelMulai"
-                                                                        value="">
-                                                                </div> -->
-                                                                <!-- <div class="col-12">
+                                                                        value="07:00">
+                                                                </div>
+                                                                <div class="col-12">
                                                                     <label for="hari">Jam Selesai Kelas</label>
                                                                     <input type="time" class="form-control"
                                                                         name="jamMapelSelesai" id="jamMapelSelesai"
-                                                                        value="">
-                                                                </div> -->
-                                                                <div class="col-12">
+                                                                        value="07:00">
+                                                                </div>
+                                                                <!-- <div class="col-12">
                                                                     <label for="namaPeriode"
                                                                         class="form-label">Periode</label>
                                                                     <input type="text" class="form-control"
                                                                         name="namaPeriode"
                                                                         value="<?=$row['periode'];?>">
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="col-md-12">
                                                                     <label for="guruPengampu" class="form-label">Guru
                                                                         Pengampu</label>
