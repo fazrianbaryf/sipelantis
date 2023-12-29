@@ -100,7 +100,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                         <?php if ($isDataEdited): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="bi bi-pencil-square me-1"></i>
-                            Data Berhasil Diubah!
+                            Data Berhasil Diedit!
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                             <script>

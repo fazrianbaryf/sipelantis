@@ -15,6 +15,10 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
             </ol>
         </nav>
     </div><!-- End Page Title -->
+    <?php
+    // Include file yang berisi logika backend untuk mengambil data dashboard
+    include __DIR__ . '/../backend/data_dashboard.php';
+    ?>
     <section class="section dashboard">
         <div class="container">
             <div class="row mb-4">
@@ -27,7 +31,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <i class="bi bi-person-lines-fill"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>1</h6>
+                                    <h6><?php echo $totalGuru; ?></h6>
                                     <span class="text-muted small pt-2 ps-1">Guru</span>
                                 </div>
                             </div>
@@ -43,7 +47,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <i class="bi bi-journals"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>1</h6>
+                                    <h6><?php echo $totalMapel; ?></h6>
                                     <span class="text-muted small pt-2 ps-1">Mapel</span>
                                 </div>
                             </div>
@@ -59,7 +63,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <i class="bi bi-building"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>1</h6>
+                                    <h6><?php echo $totalKelas; ?></h6>
                                     <span class="text-muted small pt-2 ps-1">Kelas</span>
                                 </div>
                             </div>
@@ -75,7 +79,7 @@ require_once("{$base_dir}pages{$ds}core{$ds}header.php");
                                     <i class="bi bi-buildings"></i>
                                 </div>
                                 <div class="ps-3">
-                                    <h6>1</h6>
+                                    <h6><?php echo $totalRuangan; ?></h6>
                                     <span class="text-muted small pt-2 ps-1">Ruangan</span>
                                 </div>
                             </div>

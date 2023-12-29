@@ -124,7 +124,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                         <?php if ($isDataEdited): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="bi bi-pencil-square me-1"></i>
-                            Data Berhasil Diubah!
+                            Data Berhasil Diedit!
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                             <script>
@@ -260,6 +260,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                                             <option selected name="jk">
                                                                                 <?=$row['jenis_kelamin'];?>
                                                                             </option>
+                                                                            <option>Laki-Laki</option>
                                                                             <option>Perempuan</option>
                                                                         </select>
                                                                     </div>
@@ -279,7 +280,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                     data-bs-target="#delete-user<?=$row['id_guru'];?>"
                                                     title="Delete"></button>
 
-                                                <div class="modal fade-md" id="delete-user<?=$row['id_guru'];?>"
+                                                <div class="modal fade" id="delete-user<?=$row['id_guru'];?>"
                                                     tabindex="-1" data-bs-backdrop="false">
                                                     <div class="modal-dialog modal-md">
                                                         <div class="modal-content">
@@ -287,9 +288,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                                 <h5 class="modal-title">Data Guru</h5>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <h5 class="text-center">Apakah anda yakin akan
-                                                                    menghapus
-                                                                    data ini?<br>
+                                                                <h5 class="text-center">Hapus Data?<br>
                                                                     <span class="text-danger"><?=$row['nip_guru'];?> -
                                                                         <?=$row['nama_guru'];?>
                                                                     </span>

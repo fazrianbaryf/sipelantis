@@ -62,16 +62,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                     <label for="namaJurusan" class="form-label">Jurusan</label>
                                                     <input type="text" class="form-control" name="namaJurusan">
                                                 </div>
-                                                <div class="col-12">
-                                                    <label for="hari">Jam Mulai Kelas</label>
-                                                    <input type="time" class="form-control" name="jamMapelMulai"
-                                                        id="jamMapelMulai" value="07:00">
-                                                </div>
-                                                <div class="col-12">
-                                                    <label for="hari">Jam Selesai Kelas</label>
-                                                    <input type="time" class="form-control" name="jamMapelSelesai"
-                                                        id="jamMapelSelesai" value="07:00">
-                                                </div>
+
                                                 <!-- <div class="col-12">
                                                     <label for="namaPeriode" class="form-label">Periode</label>
                                                     <input type="text" class="form-control" name="namaPeriode">
@@ -141,7 +132,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                         <?php if ($isDataEdited): ?>
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <i class="bi bi-pencil-square me-1"></i>
-                            Data Berhasil Diubah!
+                            Data Berhasil Diedit!
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 
                             <script>
@@ -153,7 +144,6 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                 document.querySelector('.alert-warning').style.display = 'none';
                             }, 2000);
                             </script>
-
                         </div>
                         <?php endif; ?>
                         <!-- End Alert Untuk Edit -->
@@ -186,8 +176,7 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                     <th scope="col">Kode Mapel</th>
                                     <th scope="col">Nama Mata Pelajaran</th>
                                     <th scope="col">Jurusan</th>
-                                    <th scope="col">Jam Mulai</th>
-                                    <th scope="col">Jam Selesai</th>
+
                                     <!-- <th scope="col">Periode</th> -->
                                     <th scope="col">Guru Pengampu</th>
                                     <th scope="col" class="text-center">Action</th>
@@ -207,8 +196,6 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                     <td><?=$row['kode_mapel'];?></td>
                                     <td><?=$row['nama_mapel'];?></td>
                                     <td><?=$row['jurusan'];?></td>
-                                    <td><?=$row['jam_mulai'];?></td>
-                                    <td><?=$row['jam_selesai'];?></td>
                                     <!-- <td><?=$row['periode'];?></td> -->
                                     <td><?=$row['nama_guru_pengampu'];?></td>
                                     <td class="text-center d-flex justify-content-center">
@@ -254,18 +241,6 @@ if (!isset($_SESSION['role']) || !in_array($_SESSION['role'], $allowed_roles)) {
                                                                     <input type="text" class="form-control"
                                                                         name="namaJurusan"
                                                                         value="<?=$row['jurusan'];?>">
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <label for="hari">Jam Mulai Kelas</label>
-                                                                    <input type="time" class="form-control"
-                                                                        name="jamMapelMulai" id="jamMapelMulai"
-                                                                        value="07:00">
-                                                                </div>
-                                                                <div class="col-12">
-                                                                    <label for="hari">Jam Selesai Kelas</label>
-                                                                    <input type="time" class="form-control"
-                                                                        name="jamMapelSelesai" id="jamMapelSelesai"
-                                                                        value="07:00">
                                                                 </div>
                                                                 <!-- <div class="col-12">
                                                                     <label for="namaPeriode"
